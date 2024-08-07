@@ -41,7 +41,7 @@ public class SolutionApiTest {
     @Test
     public void createSolutionTest() throws ApiException {
         UUID matchId = null;
-        Object variable = null;
+        List<Double> variable = null;
         CreateSolutionResponse response = api.createSolution(matchId, variable);
         // TODO: test validations
     }

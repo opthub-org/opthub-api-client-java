@@ -86,7 +86,14 @@ paths:
         name: variable
         required: true
         schema:
-          type: object
+          example:
+          - 1.234
+          - -5.678
+          - 9.1011
+          items:
+            format: double
+            type: number
+          type: array
         style: form
       responses:
         "200":
@@ -144,7 +151,10 @@ components:
         createdAt: 2024-08-06T10:11:45.789Z
         trialNo: 4
         participantType: User
-        variable: "{}"
+        variable:
+        - 1.234
+        - -5.678
+        - 9.1011
         userId: 1e892e70-47ba-4c8e-8563-6aea9019e334
         matchId: 5d7fc778-3e59-4128-a797-2e423c0aa461
       properties:
@@ -167,7 +177,14 @@ components:
           type: integer
         variable:
           description: 解空間の変数
-          type: object
+          example:
+          - 1.234
+          - -5.678
+          - 9.1011
+          items:
+            format: double
+            type: number
+          type: array
         createdAt:
           description: 作成日時
           example: 2024-08-06T10:11:45.789Z

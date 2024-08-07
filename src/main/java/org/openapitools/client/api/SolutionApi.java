@@ -88,7 +88,7 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSolutionCall(UUID matchId, Object variable, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSolutionCall(UUID matchId, List<Double> variable, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,7 +118,7 @@ public class SolutionApi {
         }
 
         if (variable != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("variable", variable));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "variable", variable));
         }
 
         final String[] localVarAccepts = {
@@ -141,7 +141,7 @@ public class SolutionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSolutionValidateBeforeCall(UUID matchId, Object variable, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSolutionValidateBeforeCall(UUID matchId, List<Double> variable, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'matchId' is set
         if (matchId == null) {
             throw new ApiException("Missing the required parameter 'matchId' when calling createSolution(Async)");
@@ -170,7 +170,7 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CreateSolutionResponse createSolution(UUID matchId, Object variable) throws ApiException {
+    public CreateSolutionResponse createSolution(UUID matchId, List<Double> variable) throws ApiException {
         ApiResponse<CreateSolutionResponse> localVarResp = createSolutionWithHttpInfo(matchId, variable);
         return localVarResp.getData();
     }
@@ -189,7 +189,7 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateSolutionResponse> createSolutionWithHttpInfo(UUID matchId, Object variable) throws ApiException {
+    public ApiResponse<CreateSolutionResponse> createSolutionWithHttpInfo(UUID matchId, List<Double> variable) throws ApiException {
         okhttp3.Call localVarCall = createSolutionValidateBeforeCall(matchId, variable, null);
         Type localVarReturnType = new TypeToken<CreateSolutionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -210,7 +210,7 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSolutionAsync(UUID matchId, Object variable, final ApiCallback<CreateSolutionResponse> _callback) throws ApiException {
+    public okhttp3.Call createSolutionAsync(UUID matchId, List<Double> variable, final ApiCallback<CreateSolutionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSolutionValidateBeforeCall(matchId, variable, _callback);
         Type localVarReturnType = new TypeToken<CreateSolutionResponse>(){}.getType();

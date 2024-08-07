@@ -37,7 +37,7 @@ public class Example {
 
     SolutionApi apiInstance = new SolutionApi(defaultClient);
     UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | 競技のID
-    Object variable = null; // Object | 解空間の変数
+    List<Double> variable = Arrays.asList(); // List<Double> | 解空間の変数
     try {
       CreateSolutionResponse result = apiInstance.createSolution(matchId, variable);
       System.out.println(result);
@@ -57,7 +57,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **matchId** | **UUID**| 競技のID | |
-| **variable** | [**Object**](.md)| 解空間の変数 | |
+| **variable** | [**List&lt;Double&gt;**](Double.md)| 解空間の変数 | |
 
 ### Return type
 

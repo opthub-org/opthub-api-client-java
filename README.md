@@ -2,7 +2,7 @@
 
 OptHub REST API
 - API version: 0.1.0
-  - Build date: 2024-08-07T06:55:24.529026229Z[Etc/UTC]
+  - Build date: 2024-08-07T07:39:20.995933705Z[Etc/UTC]
   - Generator version: 7.8.0-SNAPSHOT
 
 OptHubの公開REST APIです。
@@ -101,7 +101,7 @@ public class Example {
 
     SolutionApi apiInstance = new SolutionApi(defaultClient);
     UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | 競技のID
-    Object variable = null; // Object | 解空間の変数
+    List<Double> variable = Arrays.asList(); // List<Double> | 解空間の変数
     try {
       CreateSolutionResponse result = apiInstance.createSolution(matchId, variable);
       System.out.println(result);

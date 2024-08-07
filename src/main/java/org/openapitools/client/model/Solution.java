@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import org.openapitools.client.model.ParticipantType;
 
@@ -52,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * 解
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T06:55:24.529026229Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T07:39:20.995933705Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class Solution {
   public static final String SERIALIZED_NAME_MATCH_ID = "matchId";
   @SerializedName(SERIALIZED_NAME_MATCH_ID)
@@ -72,7 +74,7 @@ public class Solution {
 
   public static final String SERIALIZED_NAME_VARIABLE = "variable";
   @SerializedName(SERIALIZED_NAME_VARIABLE)
-  private Object variable;
+  private List<Double> variable = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -161,8 +163,16 @@ public class Solution {
   }
 
 
-  public Solution variable(Object variable) {
+  public Solution variable(List<Double> variable) {
     this.variable = variable;
+    return this;
+  }
+
+  public Solution addVariableItem(Double variableItem) {
+    if (this.variable == null) {
+      this.variable = new ArrayList<>();
+    }
+    this.variable.add(variableItem);
     return this;
   }
 
@@ -171,11 +181,11 @@ public class Solution {
    * @return variable
    */
   @javax.annotation.Nonnull
-  public Object getVariable() {
+  public List<Double> getVariable() {
     return variable;
   }
 
-  public void setVariable(Object variable) {
+  public void setVariable(List<Double> variable) {
     this.variable = variable;
   }
 
@@ -328,6 +338,12 @@ public class Solution {
       ParticipantType.validateJsonElement(jsonObj.get("participantType"));
       if (!jsonObj.get("participantId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `participantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("participantId").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("variable") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("variable").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `variable` to be an array in the JSON string but got `%s`", jsonObj.get("variable").toString()));
       }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));

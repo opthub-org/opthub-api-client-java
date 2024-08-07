@@ -12,7 +12,7 @@
 |**participantType** | **ParticipantType** |  |  |
 |**participantId** | **UUID** | 参加者のID |  |
 |**trialNo** | **Integer** | 試行番号 |  |
-|**variable** | **Object** | 解空間の変数 |  |
+|**variable** | **List&lt;Double&gt;** | 解空間の変数 |  |
 |**createdAt** | **OffsetDateTime** | 作成日時 |  |
 |**userId** | **UUID** | 作成したユーザのID |  [optional] |
 
