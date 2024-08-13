@@ -213,6 +213,6 @@ components:
   securitySchemes:
     ApiKeyAuth:
       in: header
-      name: Authorization
+      name: x-api-key
       type: apiKey
 

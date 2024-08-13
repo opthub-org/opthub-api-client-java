@@ -2,7 +2,7 @@
 
 OptHub REST API
 - API version: 0.1.0
-  - Build date: 2024-08-07T07:39:20.995933705Z[Etc/UTC]
+  - Build date: 2024-08-13T03:09:16.499441130Z[Etc/UTC]
   - Generator version: 7.8.0-SNAPSHOT
 
 OptHubの公開REST APIです。
@@ -143,7 +143,7 @@ Authentication schemes defined for the API:
 ### ApiKeyAuth
 
 - **Type**: API key
-- **API key parameter name**: Authorization
+- **API key parameter name**: x-api-key
 - **Location**: HTTP header
 
 
