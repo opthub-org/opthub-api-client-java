@@ -8,7 +8,7 @@ info:
     url: https://opensource.org/license/mit/
   termsOfService: https://example.com/todo/opthub-api-term-of-service
   title: OptHub REST API
-  version: 0.1.0
+  version: 0.1.1
 servers:
 - url: https://example.com/todo/opthub-api-endpoint
 tags:
@@ -292,27 +292,15 @@ components:
       - trialNo
       type: object
     Solution:
-      description: 解
+      description: Solution information
       example:
         createdAt: 2024-08-06T10:11:45.789Z
-        trialNo: 4
         variable:
         - 1.234
         - -5.678
         - 9.1011
         userId: 1e892e70-47ba-4c8e-8563-6aea9019e334
-        matchId: 5d7fc778-3e59-4128-a797-2e423c0aa461
       properties:
-        matchId:
-          description: Match ID
-          example: 5d7fc778-3e59-4128-a797-2e423c0aa461
-          format: uuid
-          type: string
-        trialNo:
-          description: Trial number
-          example: 4
-          format: int32
-          type: integer
         variable:
           description: Solution space variable
           example:
@@ -335,8 +323,6 @@ components:
           type: string
       required:
       - createdAt
-      - matchId
-      - trialNo
       - variable
       type: object
     GetSolutionError:

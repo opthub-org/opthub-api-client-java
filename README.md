@@ -1,8 +1,8 @@
 # openapi-java-client
 
 OptHub REST API
-- API version: 0.1.0
-  - Build date: 2024-08-27T08:50:20.721677952Z[Etc/UTC]
+- API version: 0.1.1
+  - Build date: 2024-08-27T09:21:17.033728995Z[Etc/UTC]
   - Generator version: 7.8.0-SNAPSHOT
 
 OptHub Public REST API.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:0.1.0"
+     implementation "org.openapitools:openapi-java-client:0.1.1"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-0.1.0.jar`
+* `target/openapi-java-client-0.1.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
