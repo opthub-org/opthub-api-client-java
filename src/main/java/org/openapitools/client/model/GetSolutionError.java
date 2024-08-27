@@ -24,18 +24,20 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Participant type
+ * Failed to retrieve the solution
  */
-@JsonAdapter(ParticipantType.Adapter.class)
-public enum ParticipantType {
+@JsonAdapter(GetSolutionError.Adapter.class)
+public enum GetSolutionError {
   
-  USER("User"),
+  INVALID_MATCH_ID("InvalidMatchId"),
   
-  TEAM("Team");
+  INVALID_PARTICIPANT_ID("InvalidParticipantId"),
+  
+  TRIAL_NOT_FOUND("TrialNotFound");
 
   private String value;
 
-  ParticipantType(String value) {
+  GetSolutionError(String value) {
     this.value = value;
   }
 
@@ -48,8 +50,8 @@ public enum ParticipantType {
     return String.valueOf(value);
   }
 
-  public static ParticipantType fromValue(String value) {
-    for (ParticipantType b : ParticipantType.values()) {
+  public static GetSolutionError fromValue(String value) {
+    for (GetSolutionError b : GetSolutionError.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -57,22 +59,22 @@ public enum ParticipantType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<ParticipantType> {
+  public static class Adapter extends TypeAdapter<GetSolutionError> {
     @Override
-    public void write(final JsonWriter jsonWriter, final ParticipantType enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final GetSolutionError enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public ParticipantType read(final JsonReader jsonReader) throws IOException {
+    public GetSolutionError read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return ParticipantType.fromValue(value);
+      return GetSolutionError.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     String value = jsonElement.getAsString();
-    ParticipantType.fromValue(value);
+    GetSolutionError.fromValue(value);
   }
 }
 

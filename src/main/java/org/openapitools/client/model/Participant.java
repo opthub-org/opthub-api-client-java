@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -49,9 +49,9 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * 参加者の情報
+ * Participant information
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T06:58:30.142573697Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:12:14.381144141Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class Participant {
   public static final String SERIALIZED_NAME_PARTICIPANT_ID = "participantId";
   @SerializedName(SERIALIZED_NAME_PARTICIPANT_ID)
@@ -70,7 +70,7 @@ public class Participant {
   }
 
   /**
-   * 参加者のID
+   * Participant ID
    * @return participantId
    */
   @javax.annotation.Nonnull

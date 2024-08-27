@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -54,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * 解
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T06:58:30.142573697Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:12:14.381144141Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class Solution {
   public static final String SERIALIZED_NAME_MATCH_ID = "matchId";
   @SerializedName(SERIALIZED_NAME_MATCH_ID)
@@ -89,7 +89,7 @@ public class Solution {
   }
 
   /**
-   * 競技のID
+   * Match ID
    * @return matchId
    */
   @javax.annotation.Nonnull
@@ -111,7 +111,7 @@ public class Solution {
    * Get participant
    * @return participant
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Participant getParticipant() {
     return participant;
   }
@@ -127,7 +127,7 @@ public class Solution {
   }
 
   /**
-   * 試行番号
+   * Trial number
    * @return trialNo
    */
   @javax.annotation.Nonnull
@@ -154,7 +154,7 @@ public class Solution {
   }
 
   /**
-   * 解空間の変数
+   * Solution space variable
    * @return variable
    */
   @javax.annotation.Nonnull
@@ -173,7 +173,7 @@ public class Solution {
   }
 
   /**
-   * 作成日時
+   * Creation date and time
    * @return createdAt
    */
   @javax.annotation.Nonnull
@@ -192,7 +192,7 @@ public class Solution {
   }
 
   /**
-   * 作成したユーザのID
+   * ID of the user who created it
    * @return userId
    */
   @javax.annotation.Nullable
@@ -270,6 +270,7 @@ public class Solution {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("matchId");
+    openapiRequiredFields.add("participant");
     openapiRequiredFields.add("trialNo");
     openapiRequiredFields.add("variable");
     openapiRequiredFields.add("createdAt");
@@ -306,10 +307,8 @@ public class Solution {
       if (!jsonObj.get("matchId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `matchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matchId").toString()));
       }
-      // validate the optional field `participant`
-      if (jsonObj.get("participant") != null && !jsonObj.get("participant").isJsonNull()) {
-        Participant.validateJsonElement(jsonObj.get("participant"));
-      }
+      // validate the required field `participant`
+      Participant.validateJsonElement(jsonObj.get("participant"));
       // ensure the required json array is present
       if (jsonObj.get("variable") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

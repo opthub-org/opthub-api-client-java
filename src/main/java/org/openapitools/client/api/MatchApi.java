@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -74,15 +74,15 @@ public class MatchApi {
 
     /**
      * Build call for resolveMatchAliasById
-     * @param matchId 競技のID (required)
+     * @param matchId Match ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchAliasByIdCall(UUID matchId, final ApiCallback _callback) throws ApiException {
@@ -142,16 +142,16 @@ public class MatchApi {
     }
 
     /**
-     * 競技IDから競技のエイリアスを取得
+     * Retrieve the match alias from the match ID
      * 
-     * @param matchId 競技のID (required)
+     * @param matchId Match ID (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public String resolveMatchAliasById(UUID matchId) throws ApiException {
@@ -160,16 +160,16 @@ public class MatchApi {
     }
 
     /**
-     * 競技IDから競技のエイリアスを取得
+     * Retrieve the match alias from the match ID
      * 
-     * @param matchId 競技のID (required)
+     * @param matchId Match ID (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> resolveMatchAliasByIdWithHttpInfo(UUID matchId) throws ApiException {
@@ -179,17 +179,17 @@ public class MatchApi {
     }
 
     /**
-     * 競技IDから競技のエイリアスを取得 (asynchronously)
+     * Retrieve the match alias from the match ID (asynchronously)
      * 
-     * @param matchId 競技のID (required)
+     * @param matchId Match ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchAliasByIdAsync(UUID matchId, final ApiCallback<String> _callback) throws ApiException {
@@ -201,15 +201,15 @@ public class MatchApi {
     }
     /**
      * Build call for resolveMatchIdByAlias
-     * @param alias 競技のエイリアス (required)
+     * @param alias Match alias (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchIdByAliasCall(String alias, final ApiCallback _callback) throws ApiException {
@@ -269,16 +269,16 @@ public class MatchApi {
     }
 
     /**
-     * 競技のエイリアスから競技IDを取得
+     * Retrieve the match ID from the match alias
      * 
-     * @param alias 競技のエイリアス (required)
+     * @param alias Match alias (required)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
      </table>
      */
     public UUID resolveMatchIdByAlias(String alias) throws ApiException {
@@ -287,16 +287,16 @@ public class MatchApi {
     }
 
     /**
-     * 競技のエイリアスから競技IDを取得
+     * Retrieve the match ID from the match alias
      * 
-     * @param alias 競技のエイリアス (required)
+     * @param alias Match alias (required)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> resolveMatchIdByAliasWithHttpInfo(String alias) throws ApiException {
@@ -306,17 +306,17 @@ public class MatchApi {
     }
 
     /**
-     * 競技のエイリアスから競技IDを取得 (asynchronously)
+     * Retrieve the match ID from the match alias (asynchronously)
      * 
-     * @param alias 競技のエイリアス (required)
+     * @param alias Match alias (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchIdByAliasAsync(String alias, final ApiCallback<UUID> _callback) throws ApiException {

@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -32,7 +32,7 @@ public class CompetitionApiTest {
     private final CompetitionApi api = new CompetitionApi();
 
     /**
-     * コンペティションIDからコンペティションのエイリアスを取得
+     * Retrieve the competition alias from the competition ID
      *
      * @throws ApiException if the Api call fails
      */
@@ -44,7 +44,7 @@ public class CompetitionApiTest {
     }
 
     /**
-     * コンペティションのエイリアスからコンペティションIDを取得
+     * Retrieve the competition ID from the competition alias
      *
      * @throws ApiException if the Api call fails
      */

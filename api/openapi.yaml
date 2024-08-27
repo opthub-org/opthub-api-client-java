@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   contact:
     email: dev@opthub.ai
-  description: OptHubの公開REST APIです。
+  description: OptHub Public REST API.
   license:
     name: MIT
     url: https://opensource.org/license/mit/
@@ -12,22 +12,23 @@ info:
 servers:
 - url: https://example.com/todo/opthub-api-endpoint
 tags:
-- description: 解に関する操作
+- description: Operations about solution.
   name: solution
-- description: 過去コンペティションへのアクセス
+- description: Access to past competitions.
   name: analyzer
-- description: コンペティションに関する操作
+- description: Operations about competition.
   name: competition
-- description: 競技に関する操作
+- description: Operations about match.
   name: match
-- description: エイリアスに関する操作
+- description: Operations about alias.
   name: alias
 paths:
   /competition/alias/{alias}:
     get:
       operationId: resolveCompetitionIdByAlias
       parameters:
-      - description: コンペティションのエイリアス
+      - description: Competition alias
+        example: competition123
         explode: false
         in: path
         name: alias
@@ -41,12 +42,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CompetitionId'
-          description: Successful operation
-        default:
-          description: successful operation
+          description: Competition ID
+        "404":
+          description: Competition alias not found
       security:
       - ApiKeyAuth: []
-      summary: コンペティションのエイリアスからコンペティションIDを取得
+      summary: Retrieve the competition ID from the competition alias
       tags:
       - competition
       - alias
@@ -56,7 +57,8 @@ paths:
     get:
       operationId: resolveCompetitionAliasById
       parameters:
-      - description: コンペティションのID
+      - description: Competition ID
+        example: 42c999a1-a30c-47ef-b656-eb49f67488dc
         explode: false
         in: path
         name: id
@@ -70,12 +72,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CompetitionAlias'
-          description: Successful operation
-        default:
-          description: successful operation
+          description: Competition alias
+        "404":
+          description: Competition ID not found
       security:
       - ApiKeyAuth: []
-      summary: コンペティションIDからコンペティションのエイリアスを取得
+      summary: Retrieve the competition alias from the competition ID
       tags:
       - competition
       - alias
@@ -85,7 +87,8 @@ paths:
     get:
       operationId: resolveMatchIdByAlias
       parameters:
-      - description: 競技のエイリアス
+      - description: Match alias
+        example: match123
         explode: false
         in: path
         name: alias
@@ -99,12 +102,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MatchId'
-          description: Successful operation
-        default:
-          description: successful operation
+          description: Match ID
+        "404":
+          description: Match alias not found
       security:
       - ApiKeyAuth: []
-      summary: 競技のエイリアスから競技IDを取得
+      summary: Retrieve the match ID from the match alias
       tags:
       - match
       - alias
@@ -114,7 +117,8 @@ paths:
     get:
       operationId: resolveMatchAliasById
       parameters:
-      - description: 競技のID
+      - description: Match ID
+        example: 5d7fc778-3e59-4128-a797-2e423c0aa461
         explode: false
         in: path
         name: matchId
@@ -128,12 +132,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MatchAlias'
-          description: Successful operation
-        default:
-          description: successful operation
+          description: Match alias
+        "404":
+          description: Match ID not found
       security:
       - ApiKeyAuth: []
-      summary: 競技IDから競技のエイリアスを取得
+      summary: Retrieve the match alias from the match ID
       tags:
       - match
       - alias
@@ -143,17 +147,17 @@ paths:
     get:
       operationId: getSolution
       parameters:
-      - description: 競技のID
+      - description: Match ID
         example: 5d7fc778-3e59-4128-a797-2e423c0aa461
         explode: false
         in: path
         name: matchId
         required: true
         schema:
-          format: uuid
-          type: string
+          $ref: '#/components/schemas/MatchId'
         style: simple
-      - description: 参加者のID
+      - description: Participant ID
+        example: 912f548d-2bbe-48ab-90ce-e96dae38377d
         explode: true
         in: query
         name: participantId
@@ -161,7 +165,7 @@ paths:
         schema:
           $ref: '#/components/schemas/ParticipantId'
         style: form
-      - description: 試行番号
+      - description: Trial number
         explode: true
         in: query
         name: trialNo
@@ -177,12 +181,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Solution'
-          description: Successful operation
-        default:
-          description: successful operation
+          description: Information of the solution
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSolutionError'
+          description: The created solution specified in the query was not found
       security:
       - ApiKeyAuth: []
-      summary: 解の取得
+      summary: Retrive solution
       tags:
       - solution
       x-accepts:
@@ -190,17 +198,16 @@ paths:
     post:
       operationId: createSolution
       parameters:
-      - description: 競技のID
+      - description: Match ID
         example: 5d7fc778-3e59-4128-a797-2e423c0aa461
         explode: false
         in: path
         name: matchId
         required: true
         schema:
-          format: uuid
-          type: string
+          $ref: '#/components/schemas/MatchId'
         style: simple
-      - description: 解空間の変数
+      - description: Solution space variable
         explode: true
         in: query
         name: variable
@@ -221,12 +228,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateSolutionResponse'
-          description: Successful operation
-        default:
-          description: successful operation
+          description: Information of the created solution
+        "404":
+          description: Match ID not found
       security:
       - ApiKeyAuth: []
-      summary: 解の作成
+      summary: Create solution
       tags:
       - solution
       x-accepts:
@@ -234,7 +241,7 @@ paths:
 components:
   schemas:
     CreateSolutionResponse:
-      description: 解の作成リクエストの結果
+      description: Information of the created solution
       example:
         trialNo: 4
         participant:
@@ -244,13 +251,12 @@ components:
         participant:
           $ref: '#/components/schemas/Participant'
         trialNo:
-          description: 試行番号
+          description: Trial number
           example: 4
           format: int32
           type: integer
       required:
-      - participantId
-      - participantType
+      - participant
       - trialNo
       type: object
     Solution:
@@ -269,19 +275,19 @@ components:
           participantType: User
       properties:
         matchId:
-          description: 競技のID
+          description: Match ID
           example: 5d7fc778-3e59-4128-a797-2e423c0aa461
           format: uuid
           type: string
         participant:
           $ref: '#/components/schemas/Participant'
         trialNo:
-          description: 試行番号
+          description: Trial number
           example: 4
           format: int32
           type: integer
         variable:
-          description: 解空間の変数
+          description: Solution space variable
           example:
           - 1.234
           - -5.678
@@ -291,31 +297,37 @@ components:
             type: number
           type: array
         createdAt:
-          description: 作成日時
+          description: Creation date and time
           example: 2024-08-06T10:11:45.789Z
           format: date-time
           type: string
         userId:
-          description: 作成したユーザのID
+          description: ID of the user who created it
           example: 1e892e70-47ba-4c8e-8563-6aea9019e334
           format: uuid
           type: string
       required:
       - createdAt
       - matchId
-      - participantId
-      - participantType
+      - participant
       - trialNo
       - variable
       type: object
+    GetSolutionError:
+      description: Failed to retrieve the solution
+      enum:
+      - InvalidMatchId
+      - InvalidParticipantId
+      - TrialNotFound
+      type: string
     Participant:
-      description: 参加者の情報
+      description: Participant information
       example:
         participantId: 912f548d-2bbe-48ab-90ce-e96dae38377d
         participantType: User
       properties:
         participantId:
-          description: 参加者のID
+          description: Participant ID
           example: 912f548d-2bbe-48ab-90ce-e96dae38377d
           format: uuid
           type: string
@@ -326,33 +338,33 @@ components:
       - participantType
       type: object
     ParticipantId:
-      description: 参加者のID
+      description: Participant ID
       example: 912f548d-2bbe-48ab-90ce-e96dae38377d
       format: uuid
       type: string
     ParticipantType:
-      description: 参加者の種別
+      description: Participant type
       enum:
       - User
       - Team
       example: User
       type: string
     CompetitionId:
-      description: コンペティションのID
+      description: Competition ID
       example: 42c999a1-a30c-47ef-b656-eb49f67488dc
       format: uuid
       type: string
     CompetitionAlias:
-      description: コンペティションのエイリアス
+      description: Competition alias
       example: competition123
       type: string
     MatchId:
-      description: 競技のID
+      description: Match ID
       example: 5d7fc778-3e59-4128-a797-2e423c0aa461
       format: uuid
       type: string
     MatchAlias:
-      description: 競技のエイリアス
+      description: Match alias
       example: match123
       type: string
   securitySchemes:

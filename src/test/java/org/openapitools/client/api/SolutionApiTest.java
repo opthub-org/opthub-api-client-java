@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -15,6 +15,7 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.CreateSolutionResponse;
+import org.openapitools.client.model.GetSolutionError;
 import org.openapitools.client.model.Solution;
 import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +35,7 @@ public class SolutionApiTest {
     private final SolutionApi api = new SolutionApi();
 
     /**
-     * 解の作成
+     * Create solution
      *
      * @throws ApiException if the Api call fails
      */
@@ -47,7 +48,7 @@ public class SolutionApiTest {
     }
 
     /**
-     * 解の取得
+     * Retrive solution
      *
      * @throws ApiException if the Api call fails
      */

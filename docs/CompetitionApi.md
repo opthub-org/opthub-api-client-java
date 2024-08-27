@@ -4,15 +4,15 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**resolveCompetitionAliasById**](CompetitionApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | コンペティションIDからコンペティションのエイリアスを取得 |
-| [**resolveCompetitionIdByAlias**](CompetitionApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | コンペティションのエイリアスからコンペティションIDを取得 |
+| [**resolveCompetitionAliasById**](CompetitionApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | Retrieve the competition alias from the competition ID |
+| [**resolveCompetitionIdByAlias**](CompetitionApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | Retrieve the competition ID from the competition alias |
 
 
 <a id="resolveCompetitionAliasById"></a>
 # **resolveCompetitionAliasById**
 > String resolveCompetitionAliasById(id)
 
-コンペティションIDからコンペティションのエイリアスを取得
+Retrieve the competition alias from the competition ID
 
 ### Example
 ```java
@@ -36,7 +36,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     CompetitionApi apiInstance = new CompetitionApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | コンペティションのID
+    UUID id = UUID.fromString("42c999a1-a30c-47ef-b656-eb49f67488dc"); // UUID | Competition ID
     try {
       String result = apiInstance.resolveCompetitionAliasById(id);
       System.out.println(result);
@@ -55,7 +55,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**| コンペティションのID | |
+| **id** | **UUID**| Competition ID | |
 
 ### Return type
 
@@ -73,14 +73,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Competition alias |  -  |
+| **404** | Competition ID not found |  -  |
 
 <a id="resolveCompetitionIdByAlias"></a>
 # **resolveCompetitionIdByAlias**
 > UUID resolveCompetitionIdByAlias(alias)
 
-コンペティションのエイリアスからコンペティションIDを取得
+Retrieve the competition ID from the competition alias
 
 ### Example
 ```java
@@ -104,7 +104,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     CompetitionApi apiInstance = new CompetitionApi(defaultClient);
-    String alias = "alias_example"; // String | コンペティションのエイリアス
+    String alias = "competition123"; // String | Competition alias
     try {
       UUID result = apiInstance.resolveCompetitionIdByAlias(alias);
       System.out.println(result);
@@ -123,7 +123,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **alias** | **String**| コンペティションのエイリアス | |
+| **alias** | **String**| Competition alias | |
 
 ### Return type
 
@@ -141,6 +141,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Competition ID |  -  |
+| **404** | Competition alias not found |  -  |
 

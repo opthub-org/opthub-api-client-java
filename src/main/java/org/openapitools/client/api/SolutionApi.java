@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.CreateSolutionResponse;
+import org.openapitools.client.model.GetSolutionError;
 import org.openapitools.client.model.Solution;
 import java.util.UUID;
 
@@ -76,16 +77,16 @@ public class SolutionApi {
 
     /**
      * Build call for createSolution
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
+     * @param matchId Match ID (required)
+     * @param variable Solution space variable (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSolutionCall(UUID matchId, List<Double> variable, final ApiCallback _callback) throws ApiException {
@@ -154,17 +155,17 @@ public class SolutionApi {
     }
 
     /**
-     * 解の作成
+     * Create solution
      * 
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
+     * @param matchId Match ID (required)
+     * @param variable Solution space variable (required)
      * @return CreateSolutionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public CreateSolutionResponse createSolution(UUID matchId, List<Double> variable) throws ApiException {
@@ -173,17 +174,17 @@ public class SolutionApi {
     }
 
     /**
-     * 解の作成
+     * Create solution
      * 
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
+     * @param matchId Match ID (required)
+     * @param variable Solution space variable (required)
      * @return ApiResponse&lt;CreateSolutionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateSolutionResponse> createSolutionWithHttpInfo(UUID matchId, List<Double> variable) throws ApiException {
@@ -193,18 +194,18 @@ public class SolutionApi {
     }
 
     /**
-     * 解の作成 (asynchronously)
+     * Create solution (asynchronously)
      * 
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
+     * @param matchId Match ID (required)
+     * @param variable Solution space variable (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSolutionAsync(UUID matchId, List<Double> variable, final ApiCallback<CreateSolutionResponse> _callback) throws ApiException {
@@ -216,17 +217,17 @@ public class SolutionApi {
     }
     /**
      * Build call for getSolution
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
+     * @param matchId Match ID (required)
+     * @param participantId Participant ID (required)
+     * @param trialNo Trial number (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The created solution specified in the query was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSolutionCall(UUID matchId, UUID participantId, Integer trialNo, final ApiCallback _callback) throws ApiException {
@@ -304,18 +305,18 @@ public class SolutionApi {
     }
 
     /**
-     * 解の取得
+     * Retrive solution
      * 
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
+     * @param matchId Match ID (required)
+     * @param participantId Participant ID (required)
+     * @param trialNo Trial number (required)
      * @return Solution
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The created solution specified in the query was not found </td><td>  -  </td></tr>
      </table>
      */
     public Solution getSolution(UUID matchId, UUID participantId, Integer trialNo) throws ApiException {
@@ -324,18 +325,18 @@ public class SolutionApi {
     }
 
     /**
-     * 解の取得
+     * Retrive solution
      * 
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
+     * @param matchId Match ID (required)
+     * @param participantId Participant ID (required)
+     * @param trialNo Trial number (required)
      * @return ApiResponse&lt;Solution&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The created solution specified in the query was not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Solution> getSolutionWithHttpInfo(UUID matchId, UUID participantId, Integer trialNo) throws ApiException {
@@ -345,19 +346,19 @@ public class SolutionApi {
     }
 
     /**
-     * 解の取得 (asynchronously)
+     * Retrive solution (asynchronously)
      * 
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
+     * @param matchId Match ID (required)
+     * @param participantId Participant ID (required)
+     * @param trialNo Trial number (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Information of the solution </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The created solution specified in the query was not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSolutionAsync(UUID matchId, UUID participantId, Integer trialNo, final ApiCallback<Solution> _callback) throws ApiException {

@@ -4,15 +4,15 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**resolveMatchAliasById**](MatchApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | 競技IDから競技のエイリアスを取得 |
-| [**resolveMatchIdByAlias**](MatchApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | 競技のエイリアスから競技IDを取得 |
+| [**resolveMatchAliasById**](MatchApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID |
+| [**resolveMatchIdByAlias**](MatchApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias |
 
 
 <a id="resolveMatchAliasById"></a>
 # **resolveMatchAliasById**
 > String resolveMatchAliasById(matchId)
 
-競技IDから競技のエイリアスを取得
+Retrieve the match alias from the match ID
 
 ### Example
 ```java
@@ -36,7 +36,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     MatchApi apiInstance = new MatchApi(defaultClient);
-    UUID matchId = UUID.randomUUID(); // UUID | 競技のID
+    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | Match ID
     try {
       String result = apiInstance.resolveMatchAliasById(matchId);
       System.out.println(result);
@@ -55,7 +55,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **matchId** | **UUID**| 競技のID | |
+| **matchId** | **UUID**| Match ID | |
 
 ### Return type
 
@@ -73,14 +73,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Match alias |  -  |
+| **404** | Match ID not found |  -  |
 
 <a id="resolveMatchIdByAlias"></a>
 # **resolveMatchIdByAlias**
 > UUID resolveMatchIdByAlias(alias)
 
-競技のエイリアスから競技IDを取得
+Retrieve the match ID from the match alias
 
 ### Example
 ```java
@@ -104,7 +104,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     MatchApi apiInstance = new MatchApi(defaultClient);
-    String alias = "alias_example"; // String | 競技のエイリアス
+    String alias = "match123"; // String | Match alias
     try {
       UUID result = apiInstance.resolveMatchIdByAlias(alias);
       System.out.println(result);
@@ -123,7 +123,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **alias** | **String**| 競技のエイリアス | |
+| **alias** | **String**| Match alias | |
 
 ### Return type
 
@@ -141,6 +141,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Match ID |  -  |
+| **404** | Match alias not found |  -  |
 

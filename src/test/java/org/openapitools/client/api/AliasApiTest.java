@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -32,7 +32,7 @@ public class AliasApiTest {
     private final AliasApi api = new AliasApi();
 
     /**
-     * コンペティションIDからコンペティションのエイリアスを取得
+     * Retrieve the competition alias from the competition ID
      *
      * @throws ApiException if the Api call fails
      */
@@ -44,7 +44,7 @@ public class AliasApiTest {
     }
 
     /**
-     * コンペティションのエイリアスからコンペティションIDを取得
+     * Retrieve the competition ID from the competition alias
      *
      * @throws ApiException if the Api call fails
      */
@@ -56,7 +56,7 @@ public class AliasApiTest {
     }
 
     /**
-     * 競技IDから競技のエイリアスを取得
+     * Retrieve the match alias from the match ID
      *
      * @throws ApiException if the Api call fails
      */
@@ -68,7 +68,7 @@ public class AliasApiTest {
     }
 
     /**
-     * 競技のエイリアスから競技IDを取得
+     * Retrieve the match ID from the match alias
      *
      * @throws ApiException if the Api call fails
      */

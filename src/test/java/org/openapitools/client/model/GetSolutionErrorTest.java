@@ -18,15 +18,15 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ParticipantType
+ * Model tests for GetSolutionError
  */
-public class ParticipantTypeTest {
+public class GetSolutionErrorTest {
     /**
-     * Model tests for ParticipantType
+     * Model tests for GetSolutionError
      */
     @Test
-    public void testParticipantType() {
-        // TODO: test ParticipantType
+    public void testGetSolutionError() {
+        // TODO: test GetSolutionError
     }
 
 }

@@ -8,12 +8,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**matchId** | **UUID** | 競技のID |  |
-|**participant** | [**Participant**](Participant.md) |  |  [optional] |
-|**trialNo** | **Integer** | 試行番号 |  |
-|**variable** | **List&lt;Double&gt;** | 解空間の変数 |  |
-|**createdAt** | **OffsetDateTime** | 作成日時 |  |
-|**userId** | **UUID** | 作成したユーザのID |  [optional] |
+|**matchId** | **UUID** | Match ID |  |
+|**participant** | [**Participant**](Participant.md) |  |  |
+|**trialNo** | **Integer** | Trial number |  |
+|**variable** | **List&lt;Double&gt;** | Solution space variable |  |
+|**createdAt** | **OffsetDateTime** | Creation date and time |  |
+|**userId** | **UUID** | ID of the user who created it |  [optional] |
 
 
 

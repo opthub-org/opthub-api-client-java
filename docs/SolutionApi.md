@@ -4,15 +4,15 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createSolution**](SolutionApi.md#createSolution) | **POST** /competition/match/{matchId}/solution | 解の作成 |
-| [**getSolution**](SolutionApi.md#getSolution) | **GET** /competition/match/{matchId}/solution | 解の取得 |
+| [**createSolution**](SolutionApi.md#createSolution) | **POST** /competition/match/{matchId}/solution | Create solution |
+| [**getSolution**](SolutionApi.md#getSolution) | **GET** /competition/match/{matchId}/solution | Retrive solution |
 
 
 <a id="createSolution"></a>
 # **createSolution**
 > CreateSolutionResponse createSolution(matchId, variable)
 
-解の作成
+Create solution
 
 ### Example
 ```java
@@ -36,8 +36,8 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     SolutionApi apiInstance = new SolutionApi(defaultClient);
-    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | 競技のID
-    List<Double> variable = Arrays.asList(); // List<Double> | 解空間の変数
+    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | Match ID
+    List<Double> variable = Arrays.asList(); // List<Double> | Solution space variable
     try {
       CreateSolutionResponse result = apiInstance.createSolution(matchId, variable);
       System.out.println(result);
@@ -56,8 +56,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **matchId** | **UUID**| 競技のID | |
-| **variable** | [**List&lt;Double&gt;**](Double.md)| 解空間の変数 | |
+| **matchId** | **UUID**| Match ID | |
+| **variable** | [**List&lt;Double&gt;**](Double.md)| Solution space variable | |
 
 ### Return type
 
@@ -75,14 +75,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Information of the created solution |  -  |
+| **404** | Match ID not found |  -  |
 
 <a id="getSolution"></a>
 # **getSolution**
 > Solution getSolution(matchId, participantId, trialNo)
 
-解の取得
+Retrive solution
 
 ### Example
 ```java
@@ -106,9 +106,9 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     SolutionApi apiInstance = new SolutionApi(defaultClient);
-    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | 競技のID
-    UUID participantId = UUID.randomUUID(); // UUID | 参加者のID
-    Integer trialNo = 4; // Integer | 試行番号
+    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | Match ID
+    UUID participantId = UUID.fromString("912f548d-2bbe-48ab-90ce-e96dae38377d"); // UUID | Participant ID
+    Integer trialNo = 4; // Integer | Trial number
     try {
       Solution result = apiInstance.getSolution(matchId, participantId, trialNo);
       System.out.println(result);
@@ -127,9 +127,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **matchId** | **UUID**| 競技のID | |
-| **participantId** | **UUID**| 参加者のID | |
-| **trialNo** | **Integer**| 試行番号 | |
+| **matchId** | **UUID**| Match ID | |
+| **participantId** | **UUID**| Participant ID | |
+| **trialNo** | **Integer**| Trial number | |
 
 ### Return type
 
@@ -147,6 +147,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Information of the solution |  -  |
+| **404** | The created solution specified in the query was not found |  -  |
 

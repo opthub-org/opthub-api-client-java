@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -48,9 +48,9 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * 解の作成リクエストの結果
+ * Information of the created solution
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T06:58:30.142573697Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:12:14.381144141Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class CreateSolutionResponse {
   public static final String SERIALIZED_NAME_PARTICIPANT = "participant";
   @SerializedName(SERIALIZED_NAME_PARTICIPANT)
@@ -72,7 +72,7 @@ public class CreateSolutionResponse {
    * Get participant
    * @return participant
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Participant getParticipant() {
     return participant;
   }
@@ -88,7 +88,7 @@ public class CreateSolutionResponse {
   }
 
   /**
-   * 試行番号
+   * Trial number
    * @return trialNo
    */
   @javax.annotation.Nonnull
@@ -153,6 +153,7 @@ public class CreateSolutionResponse {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("participant");
     openapiRequiredFields.add("trialNo");
   }
 
@@ -184,10 +185,8 @@ public class CreateSolutionResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `participant`
-      if (jsonObj.get("participant") != null && !jsonObj.get("participant").isJsonNull()) {
-        Participant.validateJsonElement(jsonObj.get("participant"));
-      }
+      // validate the required field `participant`
+      Participant.validateJsonElement(jsonObj.get("participant"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

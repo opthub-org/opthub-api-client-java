@@ -2,14 +2,14 @@
 
 # CreateSolutionResponse
 
-解の作成リクエストの結果
+Information of the created solution
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**participant** | [**Participant**](Participant.md) |  |  [optional] |
-|**trialNo** | **Integer** | 試行番号 |  |
+|**participant** | [**Participant**](Participant.md) |  |  |
+|**trialNo** | **Integer** | Trial number |  |
 
 
 

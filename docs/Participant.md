@@ -2,13 +2,13 @@
 
 # Participant
 
-参加者の情報
+Participant information
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**participantId** | **UUID** | 参加者のID |  |
+|**participantId** | **UUID** | Participant ID |  |
 |**participantType** | **ParticipantType** |  |  |
 
 

@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -32,7 +32,7 @@ public class MatchApiTest {
     private final MatchApi api = new MatchApi();
 
     /**
-     * 競技IDから競技のエイリアスを取得
+     * Retrieve the match alias from the match ID
      *
      * @throws ApiException if the Api call fails
      */
@@ -44,7 +44,7 @@ public class MatchApiTest {
     }
 
     /**
-     * 競技のエイリアスから競技IDを取得
+     * Retrieve the match ID from the match alias
      *
      * @throws ApiException if the Api call fails
      */

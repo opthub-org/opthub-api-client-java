@@ -1,6 +1,6 @@
 /*
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -74,15 +74,15 @@ public class CompetitionApi {
 
     /**
      * Build call for resolveCompetitionAliasById
-     * @param id コンペティションのID (required)
+     * @param id Competition ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionAliasByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -142,16 +142,16 @@ public class CompetitionApi {
     }
 
     /**
-     * コンペティションIDからコンペティションのエイリアスを取得
+     * Retrieve the competition alias from the competition ID
      * 
-     * @param id コンペティションのID (required)
+     * @param id Competition ID (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
      </table>
      */
     public String resolveCompetitionAliasById(UUID id) throws ApiException {
@@ -160,16 +160,16 @@ public class CompetitionApi {
     }
 
     /**
-     * コンペティションIDからコンペティションのエイリアスを取得
+     * Retrieve the competition alias from the competition ID
      * 
-     * @param id コンペティションのID (required)
+     * @param id Competition ID (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> resolveCompetitionAliasByIdWithHttpInfo(UUID id) throws ApiException {
@@ -179,17 +179,17 @@ public class CompetitionApi {
     }
 
     /**
-     * コンペティションIDからコンペティションのエイリアスを取得 (asynchronously)
+     * Retrieve the competition alias from the competition ID (asynchronously)
      * 
-     * @param id コンペティションのID (required)
+     * @param id Competition ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionAliasByIdAsync(UUID id, final ApiCallback<String> _callback) throws ApiException {
@@ -201,15 +201,15 @@ public class CompetitionApi {
     }
     /**
      * Build call for resolveCompetitionIdByAlias
-     * @param alias コンペティションのエイリアス (required)
+     * @param alias Competition alias (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionIdByAliasCall(String alias, final ApiCallback _callback) throws ApiException {
@@ -269,16 +269,16 @@ public class CompetitionApi {
     }
 
     /**
-     * コンペティションのエイリアスからコンペティションIDを取得
+     * Retrieve the competition ID from the competition alias
      * 
-     * @param alias コンペティションのエイリアス (required)
+     * @param alias Competition alias (required)
      * @return UUID
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
      </table>
      */
     public UUID resolveCompetitionIdByAlias(String alias) throws ApiException {
@@ -287,16 +287,16 @@ public class CompetitionApi {
     }
 
     /**
-     * コンペティションのエイリアスからコンペティションIDを取得
+     * Retrieve the competition ID from the competition alias
      * 
-     * @param alias コンペティションのエイリアス (required)
+     * @param alias Competition alias (required)
      * @return ApiResponse&lt;UUID&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> resolveCompetitionIdByAliasWithHttpInfo(String alias) throws ApiException {
@@ -306,17 +306,17 @@ public class CompetitionApi {
     }
 
     /**
-     * コンペティションのエイリアスからコンペティションIDを取得 (asynchronously)
+     * Retrieve the competition ID from the competition alias (asynchronously)
      * 
-     * @param alias コンペティションのエイリアス (required)
+     * @param alias Competition alias (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionIdByAliasAsync(String alias, final ApiCallback<UUID> _callback) throws ApiException {

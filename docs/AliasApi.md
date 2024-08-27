@@ -4,17 +4,17 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**resolveCompetitionAliasById**](AliasApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | コンペティションIDからコンペティションのエイリアスを取得 |
-| [**resolveCompetitionIdByAlias**](AliasApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | コンペティションのエイリアスからコンペティションIDを取得 |
-| [**resolveMatchAliasById**](AliasApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | 競技IDから競技のエイリアスを取得 |
-| [**resolveMatchIdByAlias**](AliasApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | 競技のエイリアスから競技IDを取得 |
+| [**resolveCompetitionAliasById**](AliasApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | Retrieve the competition alias from the competition ID |
+| [**resolveCompetitionIdByAlias**](AliasApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | Retrieve the competition ID from the competition alias |
+| [**resolveMatchAliasById**](AliasApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID |
+| [**resolveMatchIdByAlias**](AliasApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias |
 
 
 <a id="resolveCompetitionAliasById"></a>
 # **resolveCompetitionAliasById**
 > String resolveCompetitionAliasById(id)
 
-コンペティションIDからコンペティションのエイリアスを取得
+Retrieve the competition alias from the competition ID
 
 ### Example
 ```java
@@ -38,7 +38,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     AliasApi apiInstance = new AliasApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | コンペティションのID
+    UUID id = UUID.fromString("42c999a1-a30c-47ef-b656-eb49f67488dc"); // UUID | Competition ID
     try {
       String result = apiInstance.resolveCompetitionAliasById(id);
       System.out.println(result);
@@ -57,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**| コンペティションのID | |
+| **id** | **UUID**| Competition ID | |
 
 ### Return type
 
@@ -75,14 +75,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Competition alias |  -  |
+| **404** | Competition ID not found |  -  |
 
 <a id="resolveCompetitionIdByAlias"></a>
 # **resolveCompetitionIdByAlias**
 > UUID resolveCompetitionIdByAlias(alias)
 
-コンペティションのエイリアスからコンペティションIDを取得
+Retrieve the competition ID from the competition alias
 
 ### Example
 ```java
@@ -106,7 +106,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     AliasApi apiInstance = new AliasApi(defaultClient);
-    String alias = "alias_example"; // String | コンペティションのエイリアス
+    String alias = "competition123"; // String | Competition alias
     try {
       UUID result = apiInstance.resolveCompetitionIdByAlias(alias);
       System.out.println(result);
@@ -125,7 +125,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **alias** | **String**| コンペティションのエイリアス | |
+| **alias** | **String**| Competition alias | |
 
 ### Return type
 
@@ -143,14 +143,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Competition ID |  -  |
+| **404** | Competition alias not found |  -  |
 
 <a id="resolveMatchAliasById"></a>
 # **resolveMatchAliasById**
 > String resolveMatchAliasById(matchId)
 
-競技IDから競技のエイリアスを取得
+Retrieve the match alias from the match ID
 
 ### Example
 ```java
@@ -174,7 +174,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     AliasApi apiInstance = new AliasApi(defaultClient);
-    UUID matchId = UUID.randomUUID(); // UUID | 競技のID
+    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | Match ID
     try {
       String result = apiInstance.resolveMatchAliasById(matchId);
       System.out.println(result);
@@ -193,7 +193,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **matchId** | **UUID**| 競技のID | |
+| **matchId** | **UUID**| Match ID | |
 
 ### Return type
 
@@ -211,14 +211,14 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Match alias |  -  |
+| **404** | Match ID not found |  -  |
 
 <a id="resolveMatchIdByAlias"></a>
 # **resolveMatchIdByAlias**
 > UUID resolveMatchIdByAlias(alias)
 
-競技のエイリアスから競技IDを取得
+Retrieve the match ID from the match alias
 
 ### Example
 ```java
@@ -242,7 +242,7 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     AliasApi apiInstance = new AliasApi(defaultClient);
-    String alias = "alias_example"; // String | 競技のエイリアス
+    String alias = "match123"; // String | Match alias
     try {
       UUID result = apiInstance.resolveMatchIdByAlias(alias);
       System.out.println(result);
@@ -261,7 +261,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **alias** | **String**| 競技のエイリアス | |
+| **alias** | **String**| Match alias | |
 
 ### Return type
 
@@ -279,6 +279,6 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **0** | successful operation |  -  |
+| **200** | Match ID |  -  |
+| **404** | Match alias not found |  -  |
 
