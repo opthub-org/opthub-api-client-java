@@ -1,18 +1,18 @@
-# SolutionApi
+# MatchApi
 
 All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createSolution**](SolutionApi.md#createSolution) | **POST** /competition/match/{matchId}/solution | 解の作成 |
-| [**getSolution**](SolutionApi.md#getSolution) | **GET** /competition/match/{matchId}/solution | 解の取得 |
+| [**resolveMatchAliasById**](MatchApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | 競技IDから競技のエイリアスを取得 |
+| [**resolveMatchIdByAlias**](MatchApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | 競技のエイリアスから競技IDを取得 |
 
 
-<a id="createSolution"></a>
-# **createSolution**
-> CreateSolutionResponse createSolution(matchId, variable)
+<a id="resolveMatchAliasById"></a>
+# **resolveMatchAliasById**
+> String resolveMatchAliasById(matchId)
 
-解の作成
+競技IDから競技のエイリアスを取得
 
 ### Example
 ```java
@@ -22,7 +22,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.SolutionApi;
+import org.openapitools.client.api.MatchApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -35,14 +35,13 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
-    SolutionApi apiInstance = new SolutionApi(defaultClient);
-    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | 競技のID
-    List<Double> variable = Arrays.asList(); // List<Double> | 解空間の変数
+    MatchApi apiInstance = new MatchApi(defaultClient);
+    UUID matchId = UUID.randomUUID(); // UUID | 競技のID
     try {
-      CreateSolutionResponse result = apiInstance.createSolution(matchId, variable);
+      String result = apiInstance.resolveMatchAliasById(matchId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SolutionApi#createSolution");
+      System.err.println("Exception when calling MatchApi#resolveMatchAliasById");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -57,11 +56,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **matchId** | **UUID**| 競技のID | |
-| **variable** | [**List&lt;Double&gt;**](Double.md)| 解空間の変数 | |
 
 ### Return type
 
-[**CreateSolutionResponse**](CreateSolutionResponse.md)
+**String**
 
 ### Authorization
 
@@ -78,11 +76,11 @@ public class Example {
 | **200** | Successful operation |  -  |
 | **0** | successful operation |  -  |
 
-<a id="getSolution"></a>
-# **getSolution**
-> Solution getSolution(matchId, participantId, trialNo)
+<a id="resolveMatchIdByAlias"></a>
+# **resolveMatchIdByAlias**
+> UUID resolveMatchIdByAlias(alias)
 
-解の取得
+競技のエイリアスから競技IDを取得
 
 ### Example
 ```java
@@ -92,7 +90,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.SolutionApi;
+import org.openapitools.client.api.MatchApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -105,15 +103,13 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
-    SolutionApi apiInstance = new SolutionApi(defaultClient);
-    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | 競技のID
-    UUID participantId = UUID.randomUUID(); // UUID | 参加者のID
-    Integer trialNo = 4; // Integer | 試行番号
+    MatchApi apiInstance = new MatchApi(defaultClient);
+    String alias = "alias_example"; // String | 競技のエイリアス
     try {
-      Solution result = apiInstance.getSolution(matchId, participantId, trialNo);
+      UUID result = apiInstance.resolveMatchIdByAlias(alias);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SolutionApi#getSolution");
+      System.err.println("Exception when calling MatchApi#resolveMatchIdByAlias");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -127,13 +123,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **matchId** | **UUID**| 競技のID | |
-| **participantId** | **UUID**| 参加者のID | |
-| **trialNo** | **Integer**| 試行番号 | |
+| **alias** | **String**| 競技のエイリアス | |
 
 ### Return type
 
-[**Solution**](Solution.md)
+[**UUID**](UUID.md)
 
 ### Authorization
 

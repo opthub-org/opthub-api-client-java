@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.ParticipantType;
+import org.openapitools.client.model.Participant;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,19 +54,15 @@ import org.openapitools.client.JSON;
 /**
  * 解
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T03:09:16.499441130Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T06:58:30.142573697Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class Solution {
   public static final String SERIALIZED_NAME_MATCH_ID = "matchId";
   @SerializedName(SERIALIZED_NAME_MATCH_ID)
   private UUID matchId;
 
-  public static final String SERIALIZED_NAME_PARTICIPANT_TYPE = "participantType";
-  @SerializedName(SERIALIZED_NAME_PARTICIPANT_TYPE)
-  private ParticipantType participantType;
-
-  public static final String SERIALIZED_NAME_PARTICIPANT_ID = "participantId";
-  @SerializedName(SERIALIZED_NAME_PARTICIPANT_ID)
-  private UUID participantId;
+  public static final String SERIALIZED_NAME_PARTICIPANT = "participant";
+  @SerializedName(SERIALIZED_NAME_PARTICIPANT)
+  private Participant participant;
 
   public static final String SERIALIZED_NAME_TRIAL_NO = "trialNo";
   @SerializedName(SERIALIZED_NAME_TRIAL_NO)
@@ -106,41 +102,22 @@ public class Solution {
   }
 
 
-  public Solution participantType(ParticipantType participantType) {
-    this.participantType = participantType;
+  public Solution participant(Participant participant) {
+    this.participant = participant;
     return this;
   }
 
   /**
-   * Get participantType
-   * @return participantType
+   * Get participant
+   * @return participant
    */
-  @javax.annotation.Nonnull
-  public ParticipantType getParticipantType() {
-    return participantType;
+  @javax.annotation.Nullable
+  public Participant getParticipant() {
+    return participant;
   }
 
-  public void setParticipantType(ParticipantType participantType) {
-    this.participantType = participantType;
-  }
-
-
-  public Solution participantId(UUID participantId) {
-    this.participantId = participantId;
-    return this;
-  }
-
-  /**
-   * 参加者のID
-   * @return participantId
-   */
-  @javax.annotation.Nonnull
-  public UUID getParticipantId() {
-    return participantId;
-  }
-
-  public void setParticipantId(UUID participantId) {
-    this.participantId = participantId;
+  public void setParticipant(Participant participant) {
+    this.participant = participant;
   }
 
 
@@ -239,8 +216,7 @@ public class Solution {
     }
     Solution solution = (Solution) o;
     return Objects.equals(this.matchId, solution.matchId) &&
-        Objects.equals(this.participantType, solution.participantType) &&
-        Objects.equals(this.participantId, solution.participantId) &&
+        Objects.equals(this.participant, solution.participant) &&
         Objects.equals(this.trialNo, solution.trialNo) &&
         Objects.equals(this.variable, solution.variable) &&
         Objects.equals(this.createdAt, solution.createdAt) &&
@@ -249,7 +225,7 @@ public class Solution {
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchId, participantType, participantId, trialNo, variable, createdAt, userId);
+    return Objects.hash(matchId, participant, trialNo, variable, createdAt, userId);
   }
 
   @Override
@@ -257,8 +233,7 @@ public class Solution {
     StringBuilder sb = new StringBuilder();
     sb.append("class Solution {\n");
     sb.append("    matchId: ").append(toIndentedString(matchId)).append("\n");
-    sb.append("    participantType: ").append(toIndentedString(participantType)).append("\n");
-    sb.append("    participantId: ").append(toIndentedString(participantId)).append("\n");
+    sb.append("    participant: ").append(toIndentedString(participant)).append("\n");
     sb.append("    trialNo: ").append(toIndentedString(trialNo)).append("\n");
     sb.append("    variable: ").append(toIndentedString(variable)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -286,8 +261,7 @@ public class Solution {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("matchId");
-    openapiFields.add("participantType");
-    openapiFields.add("participantId");
+    openapiFields.add("participant");
     openapiFields.add("trialNo");
     openapiFields.add("variable");
     openapiFields.add("createdAt");
@@ -296,8 +270,6 @@ public class Solution {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("matchId");
-    openapiRequiredFields.add("participantType");
-    openapiRequiredFields.add("participantId");
     openapiRequiredFields.add("trialNo");
     openapiRequiredFields.add("variable");
     openapiRequiredFields.add("createdAt");
@@ -334,10 +306,9 @@ public class Solution {
       if (!jsonObj.get("matchId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `matchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matchId").toString()));
       }
-      // validate the required field `participantType`
-      ParticipantType.validateJsonElement(jsonObj.get("participantType"));
-      if (!jsonObj.get("participantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `participantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("participantId").toString()));
+      // validate the optional field `participant`
+      if (jsonObj.get("participant") != null && !jsonObj.get("participant").isJsonNull()) {
+        Participant.validateJsonElement(jsonObj.get("participant"));
       }
       // ensure the required json array is present
       if (jsonObj.get("variable") == null) {

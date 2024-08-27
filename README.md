@@ -2,7 +2,7 @@
 
 OptHub REST API
 - API version: 0.1.0
-  - Build date: 2024-08-13T03:09:16.499441130Z[Etc/UTC]
+  - Build date: 2024-08-27T06:58:30.142573697Z[Etc/UTC]
   - Generator version: 7.8.0-SNAPSHOT
 
 OptHubの公開REST APIです。
@@ -86,7 +86,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.SolutionApi;
+import org.openapitools.client.api.AliasApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -99,14 +99,13 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
-    SolutionApi apiInstance = new SolutionApi(defaultClient);
-    UUID matchId = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | 競技のID
-    List<Double> variable = Arrays.asList(); // List<Double> | 解空間の変数
+    AliasApi apiInstance = new AliasApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | コンペティションのID
     try {
-      CreateSolutionResponse result = apiInstance.createSolution(matchId, variable);
+      String result = apiInstance.resolveCompetitionAliasById(id);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SolutionApi#createSolution");
+      System.err.println("Exception when calling AliasApi#resolveCompetitionAliasById");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -123,13 +122,22 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SolutionApi* | [**createSolution**](docs/SolutionApi.md#createSolution) | **POST** /solution | 解の作成
-*SolutionApi* | [**getSolution**](docs/SolutionApi.md#getSolution) | **GET** /solution | 解の取得
+*AliasApi* | [**resolveCompetitionAliasById**](docs/AliasApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | コンペティションIDからコンペティションのエイリアスを取得
+*AliasApi* | [**resolveCompetitionIdByAlias**](docs/AliasApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | コンペティションのエイリアスからコンペティションIDを取得
+*AliasApi* | [**resolveMatchAliasById**](docs/AliasApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | 競技IDから競技のエイリアスを取得
+*AliasApi* | [**resolveMatchIdByAlias**](docs/AliasApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | 競技のエイリアスから競技IDを取得
+*CompetitionApi* | [**resolveCompetitionAliasById**](docs/CompetitionApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | コンペティションIDからコンペティションのエイリアスを取得
+*CompetitionApi* | [**resolveCompetitionIdByAlias**](docs/CompetitionApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | コンペティションのエイリアスからコンペティションIDを取得
+*MatchApi* | [**resolveMatchAliasById**](docs/MatchApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | 競技IDから競技のエイリアスを取得
+*MatchApi* | [**resolveMatchIdByAlias**](docs/MatchApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | 競技のエイリアスから競技IDを取得
+*SolutionApi* | [**createSolution**](docs/SolutionApi.md#createSolution) | **POST** /competition/match/{matchId}/solution | 解の作成
+*SolutionApi* | [**getSolution**](docs/SolutionApi.md#getSolution) | **GET** /competition/match/{matchId}/solution | 解の取得
 
 
 ## Documentation for Models
 
  - [CreateSolutionResponse](docs/CreateSolutionResponse.md)
+ - [Participant](docs/Participant.md)
  - [ParticipantType](docs/ParticipantType.md)
  - [Solution](docs/Solution.md)
 

@@ -8,9 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**matchId** | **UUID** | 競技のID |  |
-|**participantType** | **ParticipantType** |  |  |
-|**participantId** | **UUID** | 参加者のID |  |
+|**participant** | [**Participant**](Participant.md) |  |  [optional] |
 |**trialNo** | **Integer** | 試行番号 |  |
 
 

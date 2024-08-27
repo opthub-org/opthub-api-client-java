@@ -6,7 +6,11 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/AliasApi.md
+docs/CompetitionApi.md
 docs/CreateSolutionResponse.md
+docs/MatchApi.md
+docs/Participant.md
 docs/ParticipantType.md
 docs/Solution.md
 docs/SolutionApi.md
@@ -32,6 +36,9 @@ src/main/java/org/openapitools/client/ProgressResponseBody.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
+src/main/java/org/openapitools/client/api/AliasApi.java
+src/main/java/org/openapitools/client/api/CompetitionApi.java
+src/main/java/org/openapitools/client/api/MatchApi.java
 src/main/java/org/openapitools/client/api/SolutionApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java
@@ -39,9 +46,14 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/CreateSolutionResponse.java
+src/main/java/org/openapitools/client/model/Participant.java
 src/main/java/org/openapitools/client/model/ParticipantType.java
 src/main/java/org/openapitools/client/model/Solution.java
+src/test/java/org/openapitools/client/api/AliasApiTest.java
+src/test/java/org/openapitools/client/api/CompetitionApiTest.java
+src/test/java/org/openapitools/client/api/MatchApiTest.java
 src/test/java/org/openapitools/client/api/SolutionApiTest.java
 src/test/java/org/openapitools/client/model/CreateSolutionResponseTest.java
+src/test/java/org/openapitools/client/model/ParticipantTest.java
 src/test/java/org/openapitools/client/model/ParticipantTypeTest.java
 src/test/java/org/openapitools/client/model/SolutionTest.java

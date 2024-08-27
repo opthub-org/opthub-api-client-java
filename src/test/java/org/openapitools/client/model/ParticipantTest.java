@@ -20,38 +20,39 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.client.model.Participant;
+import java.util.UUID;
+import org.openapitools.client.model.ParticipantType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CreateSolutionResponse
+ * Model tests for Participant
  */
-public class CreateSolutionResponseTest {
-    private final CreateSolutionResponse model = new CreateSolutionResponse();
+public class ParticipantTest {
+    private final Participant model = new Participant();
 
     /**
-     * Model tests for CreateSolutionResponse
+     * Model tests for Participant
      */
     @Test
-    public void testCreateSolutionResponse() {
-        // TODO: test CreateSolutionResponse
+    public void testParticipant() {
+        // TODO: test Participant
     }
 
     /**
-     * Test the property 'participant'
+     * Test the property 'participantId'
      */
     @Test
-    public void participantTest() {
-        // TODO: test participant
+    public void participantIdTest() {
+        // TODO: test participantId
     }
 
     /**
-     * Test the property 'trialNo'
+     * Test the property 'participantType'
      */
     @Test
-    public void trialNoTest() {
-        // TODO: test trialNo
+    public void participantTypeTest() {
+        // TODO: test participantType
     }
 
 }

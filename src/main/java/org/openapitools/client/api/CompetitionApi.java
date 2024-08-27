@@ -27,8 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.CreateSolutionResponse;
-import org.openapitools.client.model.Solution;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -37,16 +35,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SolutionApi {
+public class CompetitionApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public SolutionApi() {
+    public CompetitionApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public SolutionApi(ApiClient apiClient) {
+    public CompetitionApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -75,9 +73,8 @@ public class SolutionApi {
     }
 
     /**
-     * Build call for createSolution
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
+     * Build call for resolveCompetitionAliasById
+     * @param id コンペティションのID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +85,7 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSolutionCall(UUID matchId, List<Double> variable, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call resolveCompetitionAliasByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,163 +102,14 @@ public class SolutionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/competition/match/{matchId}/solution"
-            .replace("{" + "matchId" + "}", localVarApiClient.escapeString(matchId.toString()));
+        String localVarPath = "/competition/{id}/alias"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (variable != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "variable", variable));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSolutionValidateBeforeCall(UUID matchId, List<Double> variable, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'matchId' is set
-        if (matchId == null) {
-            throw new ApiException("Missing the required parameter 'matchId' when calling createSolution(Async)");
-        }
-
-        // verify the required parameter 'variable' is set
-        if (variable == null) {
-            throw new ApiException("Missing the required parameter 'variable' when calling createSolution(Async)");
-        }
-
-        return createSolutionCall(matchId, variable, _callback);
-
-    }
-
-    /**
-     * 解の作成
-     * 
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
-     * @return CreateSolutionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateSolutionResponse createSolution(UUID matchId, List<Double> variable) throws ApiException {
-        ApiResponse<CreateSolutionResponse> localVarResp = createSolutionWithHttpInfo(matchId, variable);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 解の作成
-     * 
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
-     * @return ApiResponse&lt;CreateSolutionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateSolutionResponse> createSolutionWithHttpInfo(UUID matchId, List<Double> variable) throws ApiException {
-        okhttp3.Call localVarCall = createSolutionValidateBeforeCall(matchId, variable, null);
-        Type localVarReturnType = new TypeToken<CreateSolutionResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * 解の作成 (asynchronously)
-     * 
-     * @param matchId 競技のID (required)
-     * @param variable 解空間の変数 (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createSolutionAsync(UUID matchId, List<Double> variable, final ApiCallback<CreateSolutionResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createSolutionValidateBeforeCall(matchId, variable, _callback);
-        Type localVarReturnType = new TypeToken<CreateSolutionResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getSolution
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getSolutionCall(UUID matchId, UUID participantId, Integer trialNo, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/competition/match/{matchId}/solution"
-            .replace("{" + "matchId" + "}", localVarApiClient.escapeString(matchId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (participantId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("participantId", participantId));
-        }
-
-        if (trialNo != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("trialNo", trialNo));
-        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -283,33 +131,21 @@ public class SolutionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSolutionValidateBeforeCall(UUID matchId, UUID participantId, Integer trialNo, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'matchId' is set
-        if (matchId == null) {
-            throw new ApiException("Missing the required parameter 'matchId' when calling getSolution(Async)");
+    private okhttp3.Call resolveCompetitionAliasByIdValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling resolveCompetitionAliasById(Async)");
         }
 
-        // verify the required parameter 'participantId' is set
-        if (participantId == null) {
-            throw new ApiException("Missing the required parameter 'participantId' when calling getSolution(Async)");
-        }
-
-        // verify the required parameter 'trialNo' is set
-        if (trialNo == null) {
-            throw new ApiException("Missing the required parameter 'trialNo' when calling getSolution(Async)");
-        }
-
-        return getSolutionCall(matchId, participantId, trialNo, _callback);
+        return resolveCompetitionAliasByIdCall(id, _callback);
 
     }
 
     /**
-     * 解の取得
+     * コンペティションIDからコンペティションのエイリアスを取得
      * 
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
-     * @return Solution
+     * @param id コンペティションのID (required)
+     * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -318,18 +154,16 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Solution getSolution(UUID matchId, UUID participantId, Integer trialNo) throws ApiException {
-        ApiResponse<Solution> localVarResp = getSolutionWithHttpInfo(matchId, participantId, trialNo);
+    public String resolveCompetitionAliasById(UUID id) throws ApiException {
+        ApiResponse<String> localVarResp = resolveCompetitionAliasByIdWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
-     * 解の取得
+     * コンペティションIDからコンペティションのエイリアスを取得
      * 
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
-     * @return ApiResponse&lt;Solution&gt;
+     * @param id コンペティションのID (required)
+     * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -338,18 +172,16 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Solution> getSolutionWithHttpInfo(UUID matchId, UUID participantId, Integer trialNo) throws ApiException {
-        okhttp3.Call localVarCall = getSolutionValidateBeforeCall(matchId, participantId, trialNo, null);
-        Type localVarReturnType = new TypeToken<Solution>(){}.getType();
+    public ApiResponse<String> resolveCompetitionAliasByIdWithHttpInfo(UUID id) throws ApiException {
+        okhttp3.Call localVarCall = resolveCompetitionAliasByIdValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * 解の取得 (asynchronously)
+     * コンペティションIDからコンペティションのエイリアスを取得 (asynchronously)
      * 
-     * @param matchId 競技のID (required)
-     * @param participantId 参加者のID (required)
-     * @param trialNo 試行番号 (required)
+     * @param id コンペティションのID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -360,10 +192,137 @@ public class SolutionApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSolutionAsync(UUID matchId, UUID participantId, Integer trialNo, final ApiCallback<Solution> _callback) throws ApiException {
+    public okhttp3.Call resolveCompetitionAliasByIdAsync(UUID id, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSolutionValidateBeforeCall(matchId, participantId, trialNo, _callback);
-        Type localVarReturnType = new TypeToken<Solution>(){}.getType();
+        okhttp3.Call localVarCall = resolveCompetitionAliasByIdValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for resolveCompetitionIdByAlias
+     * @param alias コンペティションのエイリアス (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call resolveCompetitionIdByAliasCall(String alias, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/competition/alias/{alias}"
+            .replace("{" + "alias" + "}", localVarApiClient.escapeString(alias.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call resolveCompetitionIdByAliasValidateBeforeCall(String alias, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'alias' is set
+        if (alias == null) {
+            throw new ApiException("Missing the required parameter 'alias' when calling resolveCompetitionIdByAlias(Async)");
+        }
+
+        return resolveCompetitionIdByAliasCall(alias, _callback);
+
+    }
+
+    /**
+     * コンペティションのエイリアスからコンペティションIDを取得
+     * 
+     * @param alias コンペティションのエイリアス (required)
+     * @return UUID
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public UUID resolveCompetitionIdByAlias(String alias) throws ApiException {
+        ApiResponse<UUID> localVarResp = resolveCompetitionIdByAliasWithHttpInfo(alias);
+        return localVarResp.getData();
+    }
+
+    /**
+     * コンペティションのエイリアスからコンペティションIDを取得
+     * 
+     * @param alias コンペティションのエイリアス (required)
+     * @return ApiResponse&lt;UUID&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UUID> resolveCompetitionIdByAliasWithHttpInfo(String alias) throws ApiException {
+        okhttp3.Call localVarCall = resolveCompetitionIdByAliasValidateBeforeCall(alias, null);
+        Type localVarReturnType = new TypeToken<UUID>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * コンペティションのエイリアスからコンペティションIDを取得 (asynchronously)
+     * 
+     * @param alias コンペティションのエイリアス (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call resolveCompetitionIdByAliasAsync(String alias, final ApiCallback<UUID> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = resolveCompetitionIdByAliasValidateBeforeCall(alias, _callback);
+        Type localVarReturnType = new TypeToken<UUID>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

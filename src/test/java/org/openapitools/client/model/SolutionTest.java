@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.ParticipantType;
+import org.openapitools.client.model.Participant;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -51,19 +51,11 @@ public class SolutionTest {
     }
 
     /**
-     * Test the property 'participantType'
+     * Test the property 'participant'
      */
     @Test
-    public void participantTypeTest() {
-        // TODO: test participantType
-    }
-
-    /**
-     * Test the property 'participantId'
-     */
-    @Test
-    public void participantIdTest() {
-        // TODO: test participantId
+    public void participantTest() {
+        // TODO: test participant
     }
 
     /**

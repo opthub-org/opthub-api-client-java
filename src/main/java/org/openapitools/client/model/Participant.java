@@ -21,7 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.client.model.Participant;
+import java.util.UUID;
+import org.openapitools.client.model.ParticipantType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,56 +49,56 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * 解の作成リクエストの結果
+ * 参加者の情報
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T06:58:30.142573697Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
-public class CreateSolutionResponse {
-  public static final String SERIALIZED_NAME_PARTICIPANT = "participant";
-  @SerializedName(SERIALIZED_NAME_PARTICIPANT)
-  private Participant participant;
+public class Participant {
+  public static final String SERIALIZED_NAME_PARTICIPANT_ID = "participantId";
+  @SerializedName(SERIALIZED_NAME_PARTICIPANT_ID)
+  private UUID participantId;
 
-  public static final String SERIALIZED_NAME_TRIAL_NO = "trialNo";
-  @SerializedName(SERIALIZED_NAME_TRIAL_NO)
-  private Integer trialNo;
+  public static final String SERIALIZED_NAME_PARTICIPANT_TYPE = "participantType";
+  @SerializedName(SERIALIZED_NAME_PARTICIPANT_TYPE)
+  private ParticipantType participantType;
 
-  public CreateSolutionResponse() {
+  public Participant() {
   }
 
-  public CreateSolutionResponse participant(Participant participant) {
-    this.participant = participant;
+  public Participant participantId(UUID participantId) {
+    this.participantId = participantId;
     return this;
   }
 
   /**
-   * Get participant
-   * @return participant
-   */
-  @javax.annotation.Nullable
-  public Participant getParticipant() {
-    return participant;
-  }
-
-  public void setParticipant(Participant participant) {
-    this.participant = participant;
-  }
-
-
-  public CreateSolutionResponse trialNo(Integer trialNo) {
-    this.trialNo = trialNo;
-    return this;
-  }
-
-  /**
-   * 試行番号
-   * @return trialNo
+   * 参加者のID
+   * @return participantId
    */
   @javax.annotation.Nonnull
-  public Integer getTrialNo() {
-    return trialNo;
+  public UUID getParticipantId() {
+    return participantId;
   }
 
-  public void setTrialNo(Integer trialNo) {
-    this.trialNo = trialNo;
+  public void setParticipantId(UUID participantId) {
+    this.participantId = participantId;
+  }
+
+
+  public Participant participantType(ParticipantType participantType) {
+    this.participantType = participantType;
+    return this;
+  }
+
+  /**
+   * Get participantType
+   * @return participantType
+   */
+  @javax.annotation.Nonnull
+  public ParticipantType getParticipantType() {
+    return participantType;
+  }
+
+  public void setParticipantType(ParticipantType participantType) {
+    this.participantType = participantType;
   }
 
 
@@ -110,22 +111,22 @@ public class CreateSolutionResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateSolutionResponse createSolutionResponse = (CreateSolutionResponse) o;
-    return Objects.equals(this.participant, createSolutionResponse.participant) &&
-        Objects.equals(this.trialNo, createSolutionResponse.trialNo);
+    Participant participant = (Participant) o;
+    return Objects.equals(this.participantId, participant.participantId) &&
+        Objects.equals(this.participantType, participant.participantType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(participant, trialNo);
+    return Objects.hash(participantId, participantType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateSolutionResponse {\n");
-    sb.append("    participant: ").append(toIndentedString(participant)).append("\n");
-    sb.append("    trialNo: ").append(toIndentedString(trialNo)).append("\n");
+    sb.append("class Participant {\n");
+    sb.append("    participantId: ").append(toIndentedString(participantId)).append("\n");
+    sb.append("    participantType: ").append(toIndentedString(participantType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -148,68 +149,70 @@ public class CreateSolutionResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("participant");
-    openapiFields.add("trialNo");
+    openapiFields.add("participantId");
+    openapiFields.add("participantType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("trialNo");
+    openapiRequiredFields.add("participantId");
+    openapiRequiredFields.add("participantType");
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CreateSolutionResponse
+   * @throws IOException if the JSON Element is invalid with respect to Participant
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CreateSolutionResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateSolutionResponse is not found in the empty JSON string", CreateSolutionResponse.openapiRequiredFields.toString()));
+        if (!Participant.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Participant is not found in the empty JSON string", Participant.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreateSolutionResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateSolutionResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!Participant.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Participant` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateSolutionResponse.openapiRequiredFields) {
+      for (String requiredField : Participant.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `participant`
-      if (jsonObj.get("participant") != null && !jsonObj.get("participant").isJsonNull()) {
-        Participant.validateJsonElement(jsonObj.get("participant"));
+      if (!jsonObj.get("participantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `participantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("participantId").toString()));
       }
+      // validate the required field `participantType`
+      ParticipantType.validateJsonElement(jsonObj.get("participantType"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateSolutionResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateSolutionResponse' and its subtypes
+       if (!Participant.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Participant' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateSolutionResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateSolutionResponse.class));
+       final TypeAdapter<Participant> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Participant.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateSolutionResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<Participant>() {
            @Override
-           public void write(JsonWriter out, CreateSolutionResponse value) throws IOException {
+           public void write(JsonWriter out, Participant value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateSolutionResponse read(JsonReader in) throws IOException {
+           public Participant read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -220,18 +223,18 @@ public class CreateSolutionResponse {
   }
 
   /**
-   * Create an instance of CreateSolutionResponse given an JSON string
+   * Create an instance of Participant given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreateSolutionResponse
-   * @throws IOException if the JSON string is invalid with respect to CreateSolutionResponse
+   * @return An instance of Participant
+   * @throws IOException if the JSON string is invalid with respect to Participant
    */
-  public static CreateSolutionResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateSolutionResponse.class);
+  public static Participant fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Participant.class);
   }
 
   /**
-   * Convert an instance of CreateSolutionResponse to an JSON string
+   * Convert an instance of Participant to an JSON string
    *
    * @return JSON string
    */
