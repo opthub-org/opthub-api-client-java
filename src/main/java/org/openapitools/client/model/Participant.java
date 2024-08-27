@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 import org.openapitools.client.model.ParticipantType;
 
 import com.google.gson.Gson;
@@ -51,37 +50,14 @@ import org.openapitools.client.JSON;
 /**
  * Participant information
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:12:14.381144141Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:50:20.721677952Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class Participant {
-  public static final String SERIALIZED_NAME_PARTICIPANT_ID = "participantId";
-  @SerializedName(SERIALIZED_NAME_PARTICIPANT_ID)
-  private UUID participantId;
-
   public static final String SERIALIZED_NAME_PARTICIPANT_TYPE = "participantType";
   @SerializedName(SERIALIZED_NAME_PARTICIPANT_TYPE)
   private ParticipantType participantType;
 
   public Participant() {
   }
-
-  public Participant participantId(UUID participantId) {
-    this.participantId = participantId;
-    return this;
-  }
-
-  /**
-   * Participant ID
-   * @return participantId
-   */
-  @javax.annotation.Nonnull
-  public UUID getParticipantId() {
-    return participantId;
-  }
-
-  public void setParticipantId(UUID participantId) {
-    this.participantId = participantId;
-  }
-
 
   public Participant participantType(ParticipantType participantType) {
     this.participantType = participantType;
@@ -112,20 +88,18 @@ public class Participant {
       return false;
     }
     Participant participant = (Participant) o;
-    return Objects.equals(this.participantId, participant.participantId) &&
-        Objects.equals(this.participantType, participant.participantType);
+    return Objects.equals(this.participantType, participant.participantType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(participantId, participantType);
+    return Objects.hash(participantType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Participant {\n");
-    sb.append("    participantId: ").append(toIndentedString(participantId)).append("\n");
     sb.append("    participantType: ").append(toIndentedString(participantType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -149,12 +123,10 @@ public class Participant {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("participantId");
     openapiFields.add("participantType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("participantId");
     openapiRequiredFields.add("participantType");
   }
 
@@ -186,9 +158,6 @@ public class Participant {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("participantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `participantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("participantId").toString()));
-      }
       // validate the required field `participantType`
       ParticipantType.validateJsonElement(jsonObj.get("participantType"));
   }

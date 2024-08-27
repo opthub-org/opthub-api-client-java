@@ -12,6 +12,7 @@ docs/CreateSolutionResponse.md
 docs/GetSolutionError.md
 docs/MatchApi.md
 docs/Participant.md
+docs/ParticipantApi.md
 docs/ParticipantType.md
 docs/Solution.md
 docs/SolutionApi.md
@@ -40,6 +41,7 @@ src/main/java/org/openapitools/client/StringUtil.java
 src/main/java/org/openapitools/client/api/AliasApi.java
 src/main/java/org/openapitools/client/api/CompetitionApi.java
 src/main/java/org/openapitools/client/api/MatchApi.java
+src/main/java/org/openapitools/client/api/ParticipantApi.java
 src/main/java/org/openapitools/client/api/SolutionApi.java
 src/main/java/org/openapitools/client/auth/ApiKeyAuth.java
 src/main/java/org/openapitools/client/auth/Authentication.java
@@ -54,6 +56,7 @@ src/main/java/org/openapitools/client/model/Solution.java
 src/test/java/org/openapitools/client/api/AliasApiTest.java
 src/test/java/org/openapitools/client/api/CompetitionApiTest.java
 src/test/java/org/openapitools/client/api/MatchApiTest.java
+src/test/java/org/openapitools/client/api/ParticipantApiTest.java
 src/test/java/org/openapitools/client/api/SolutionApiTest.java
 src/test/java/org/openapitools/client/model/CreateSolutionResponseTest.java
 src/test/java/org/openapitools/client/model/GetSolutionErrorTest.java

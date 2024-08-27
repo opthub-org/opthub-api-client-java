@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.Participant;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,15 +53,11 @@ import org.openapitools.client.JSON;
 /**
  * 解
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:12:14.381144141Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:50:20.721677952Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class Solution {
   public static final String SERIALIZED_NAME_MATCH_ID = "matchId";
   @SerializedName(SERIALIZED_NAME_MATCH_ID)
   private UUID matchId;
-
-  public static final String SERIALIZED_NAME_PARTICIPANT = "participant";
-  @SerializedName(SERIALIZED_NAME_PARTICIPANT)
-  private Participant participant;
 
   public static final String SERIALIZED_NAME_TRIAL_NO = "trialNo";
   @SerializedName(SERIALIZED_NAME_TRIAL_NO)
@@ -99,25 +94,6 @@ public class Solution {
 
   public void setMatchId(UUID matchId) {
     this.matchId = matchId;
-  }
-
-
-  public Solution participant(Participant participant) {
-    this.participant = participant;
-    return this;
-  }
-
-  /**
-   * Get participant
-   * @return participant
-   */
-  @javax.annotation.Nonnull
-  public Participant getParticipant() {
-    return participant;
-  }
-
-  public void setParticipant(Participant participant) {
-    this.participant = participant;
   }
 
 
@@ -216,7 +192,6 @@ public class Solution {
     }
     Solution solution = (Solution) o;
     return Objects.equals(this.matchId, solution.matchId) &&
-        Objects.equals(this.participant, solution.participant) &&
         Objects.equals(this.trialNo, solution.trialNo) &&
         Objects.equals(this.variable, solution.variable) &&
         Objects.equals(this.createdAt, solution.createdAt) &&
@@ -225,7 +200,7 @@ public class Solution {
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchId, participant, trialNo, variable, createdAt, userId);
+    return Objects.hash(matchId, trialNo, variable, createdAt, userId);
   }
 
   @Override
@@ -233,7 +208,6 @@ public class Solution {
     StringBuilder sb = new StringBuilder();
     sb.append("class Solution {\n");
     sb.append("    matchId: ").append(toIndentedString(matchId)).append("\n");
-    sb.append("    participant: ").append(toIndentedString(participant)).append("\n");
     sb.append("    trialNo: ").append(toIndentedString(trialNo)).append("\n");
     sb.append("    variable: ").append(toIndentedString(variable)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -261,7 +235,6 @@ public class Solution {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("matchId");
-    openapiFields.add("participant");
     openapiFields.add("trialNo");
     openapiFields.add("variable");
     openapiFields.add("createdAt");
@@ -270,7 +243,6 @@ public class Solution {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("matchId");
-    openapiRequiredFields.add("participant");
     openapiRequiredFields.add("trialNo");
     openapiRequiredFields.add("variable");
     openapiRequiredFields.add("createdAt");
@@ -307,8 +279,6 @@ public class Solution {
       if (!jsonObj.get("matchId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `matchId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matchId").toString()));
       }
-      // validate the required field `participant`
-      Participant.validateJsonElement(jsonObj.get("participant"));
       // ensure the required json array is present
       if (jsonObj.get("variable") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

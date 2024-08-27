@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.client.model.Participant;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,11 +50,11 @@ import org.openapitools.client.JSON;
 /**
  * Information of the created solution
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:12:14.381144141Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-27T08:50:20.721677952Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class CreateSolutionResponse {
-  public static final String SERIALIZED_NAME_PARTICIPANT = "participant";
-  @SerializedName(SERIALIZED_NAME_PARTICIPANT)
-  private Participant participant;
+  public static final String SERIALIZED_NAME_PARTICIPANT_ID = "participantId";
+  @SerializedName(SERIALIZED_NAME_PARTICIPANT_ID)
+  private UUID participantId;
 
   public static final String SERIALIZED_NAME_TRIAL_NO = "trialNo";
   @SerializedName(SERIALIZED_NAME_TRIAL_NO)
@@ -63,22 +63,22 @@ public class CreateSolutionResponse {
   public CreateSolutionResponse() {
   }
 
-  public CreateSolutionResponse participant(Participant participant) {
-    this.participant = participant;
+  public CreateSolutionResponse participantId(UUID participantId) {
+    this.participantId = participantId;
     return this;
   }
 
   /**
-   * Get participant
-   * @return participant
+   * Participant ID
+   * @return participantId
    */
   @javax.annotation.Nonnull
-  public Participant getParticipant() {
-    return participant;
+  public UUID getParticipantId() {
+    return participantId;
   }
 
-  public void setParticipant(Participant participant) {
-    this.participant = participant;
+  public void setParticipantId(UUID participantId) {
+    this.participantId = participantId;
   }
 
 
@@ -111,20 +111,20 @@ public class CreateSolutionResponse {
       return false;
     }
     CreateSolutionResponse createSolutionResponse = (CreateSolutionResponse) o;
-    return Objects.equals(this.participant, createSolutionResponse.participant) &&
+    return Objects.equals(this.participantId, createSolutionResponse.participantId) &&
         Objects.equals(this.trialNo, createSolutionResponse.trialNo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(participant, trialNo);
+    return Objects.hash(participantId, trialNo);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSolutionResponse {\n");
-    sb.append("    participant: ").append(toIndentedString(participant)).append("\n");
+    sb.append("    participantId: ").append(toIndentedString(participantId)).append("\n");
     sb.append("    trialNo: ").append(toIndentedString(trialNo)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -148,12 +148,12 @@ public class CreateSolutionResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("participant");
+    openapiFields.add("participantId");
     openapiFields.add("trialNo");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("participant");
+    openapiRequiredFields.add("participantId");
     openapiRequiredFields.add("trialNo");
   }
 
@@ -185,8 +185,9 @@ public class CreateSolutionResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `participant`
-      Participant.validateJsonElement(jsonObj.get("participant"));
+      if (!jsonObj.get("participantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `participantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("participantId").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

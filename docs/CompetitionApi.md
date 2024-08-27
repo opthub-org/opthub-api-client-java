@@ -74,7 +74,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Competition alias |  -  |
-| **404** | Competition ID not found |  -  |
+| **404** | Competition not found |  -  |
 
 <a id="resolveCompetitionIdByAlias"></a>
 # **resolveCompetitionIdByAlias**
@@ -142,5 +142,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Competition ID |  -  |
-| **404** | Competition alias not found |  -  |
+| **404** | Competition not found |  -  |
 

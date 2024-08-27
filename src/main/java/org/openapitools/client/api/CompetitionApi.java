@@ -82,7 +82,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionAliasByIdCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -151,7 +151,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public String resolveCompetitionAliasById(UUID id) throws ApiException {
@@ -169,7 +169,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> resolveCompetitionAliasByIdWithHttpInfo(UUID id) throws ApiException {
@@ -189,7 +189,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionAliasByIdAsync(UUID id, final ApiCallback<String> _callback) throws ApiException {
@@ -209,7 +209,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionIdByAliasCall(String alias, final ApiCallback _callback) throws ApiException {
@@ -278,7 +278,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public UUID resolveCompetitionIdByAlias(String alias) throws ApiException {
@@ -296,7 +296,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> resolveCompetitionIdByAliasWithHttpInfo(String alias) throws ApiException {
@@ -316,7 +316,7 @@ public class CompetitionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Competition ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Competition alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Competition not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveCompetitionIdByAliasAsync(String alias, final ApiCallback<UUID> _callback) throws ApiException {

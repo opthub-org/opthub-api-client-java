@@ -76,7 +76,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Information of the created solution |  -  |
-| **404** | Match ID not found |  -  |
+| **404** | Match not found |  -  |
 
 <a id="getSolution"></a>
 # **getSolution**

@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.client.model.Participant;
+import java.util.UUID;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -39,11 +39,11 @@ public class CreateSolutionResponseTest {
     }
 
     /**
-     * Test the property 'participant'
+     * Test the property 'participantId'
      */
     @Test
-    public void participantTest() {
-        // TODO: test participant
+    public void participantIdTest() {
+        // TODO: test participantId
     }
 
     /**

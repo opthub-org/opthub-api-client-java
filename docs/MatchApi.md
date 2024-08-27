@@ -74,7 +74,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Match alias |  -  |
-| **404** | Match ID not found |  -  |
+| **404** | Match not found |  -  |
 
 <a id="resolveMatchIdByAlias"></a>
 # **resolveMatchIdByAlias**
@@ -142,5 +142,5 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Match ID |  -  |
-| **404** | Match alias not found |  -  |
+| **404** | Match not found |  -  |
 

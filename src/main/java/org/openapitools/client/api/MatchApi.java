@@ -82,7 +82,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchAliasByIdCall(UUID matchId, final ApiCallback _callback) throws ApiException {
@@ -151,7 +151,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public String resolveMatchAliasById(UUID matchId) throws ApiException {
@@ -169,7 +169,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> resolveMatchAliasByIdWithHttpInfo(UUID matchId) throws ApiException {
@@ -189,7 +189,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match alias </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchAliasByIdAsync(UUID matchId, final ApiCallback<String> _callback) throws ApiException {
@@ -209,7 +209,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchIdByAliasCall(String alias, final ApiCallback _callback) throws ApiException {
@@ -278,7 +278,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public UUID resolveMatchIdByAlias(String alias) throws ApiException {
@@ -296,7 +296,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<UUID> resolveMatchIdByAliasWithHttpInfo(String alias) throws ApiException {
@@ -316,7 +316,7 @@ public class MatchApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Match ID </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match alias not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call resolveMatchIdByAliasAsync(String alias, final ApiCallback<UUID> _callback) throws ApiException {

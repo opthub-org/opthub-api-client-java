@@ -9,7 +9,6 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**matchId** | **UUID** | Match ID |  |
-|**participant** | [**Participant**](Participant.md) |  |  |
 |**trialNo** | **Integer** | Trial number |  |
 |**variable** | **List&lt;Double&gt;** | Solution space variable |  |
 |**createdAt** | **OffsetDateTime** | Creation date and time |  |

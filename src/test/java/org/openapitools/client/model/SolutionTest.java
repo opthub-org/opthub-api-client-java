@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.client.model.Participant;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -48,14 +47,6 @@ public class SolutionTest {
     @Test
     public void matchIdTest() {
         // TODO: test matchId
-    }
-
-    /**
-     * Test the property 'participant'
-     */
-    @Test
-    public void participantTest() {
-        // TODO: test participant
     }
 
     /**

@@ -2,7 +2,7 @@
 
 OptHub REST API
 - API version: 0.1.0
-  - Build date: 2024-08-27T08:12:14.381144141Z[Etc/UTC]
+  - Build date: 2024-08-27T08:50:20.721677952Z[Etc/UTC]
   - Generator version: 7.8.0-SNAPSHOT
 
 OptHub Public REST API.
@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 *CompetitionApi* | [**resolveCompetitionIdByAlias**](docs/CompetitionApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | Retrieve the competition ID from the competition alias
 *MatchApi* | [**resolveMatchAliasById**](docs/MatchApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID
 *MatchApi* | [**resolveMatchIdByAlias**](docs/MatchApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias
+*ParticipantApi* | [**getParticipant**](docs/ParticipantApi.md#getParticipant) | **GET** /participant/{id} | Retrieve the participant information
 *SolutionApi* | [**createSolution**](docs/SolutionApi.md#createSolution) | **POST** /competition/match/{matchId}/solution | Create solution
 *SolutionApi* | [**getSolution**](docs/SolutionApi.md#getSolution) | **GET** /competition/match/{matchId}/solution | Retrive solution
 

@@ -8,7 +8,6 @@ Participant information
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**participantId** | **UUID** | Participant ID |  |
 |**participantType** | **ParticipantType** |  |  |
 
 

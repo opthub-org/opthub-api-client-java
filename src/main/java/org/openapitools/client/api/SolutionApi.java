@@ -86,7 +86,7 @@ public class SolutionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSolutionCall(UUID matchId, List<Double> variable, final ApiCallback _callback) throws ApiException {
@@ -165,7 +165,7 @@ public class SolutionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public CreateSolutionResponse createSolution(UUID matchId, List<Double> variable) throws ApiException {
@@ -184,7 +184,7 @@ public class SolutionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CreateSolutionResponse> createSolutionWithHttpInfo(UUID matchId, List<Double> variable) throws ApiException {
@@ -205,7 +205,7 @@ public class SolutionApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Information of the created solution </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Match ID not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Match not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSolutionAsync(UUID matchId, List<Double> variable, final ApiCallback<CreateSolutionResponse> _callback) throws ApiException {

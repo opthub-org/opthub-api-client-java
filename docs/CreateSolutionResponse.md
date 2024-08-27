@@ -8,7 +8,7 @@ Information of the created solution
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**participant** | [**Participant**](Participant.md) |  |  |
+|**participantId** | **UUID** | Participant ID |  |
 |**trialNo** | **Integer** | Trial number |  |
 
 

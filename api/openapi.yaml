@@ -20,6 +20,8 @@ tags:
   name: competition
 - description: Operations about match.
   name: match
+- description: Operations about participant.
+  name: participant
 - description: Operations about alias.
   name: alias
 paths:
@@ -44,7 +46,7 @@ paths:
                 $ref: '#/components/schemas/CompetitionId'
           description: Competition ID
         "404":
-          description: Competition alias not found
+          description: Competition not found
       security:
       - ApiKeyAuth: []
       summary: Retrieve the competition ID from the competition alias
@@ -74,7 +76,7 @@ paths:
                 $ref: '#/components/schemas/CompetitionAlias'
           description: Competition alias
         "404":
-          description: Competition ID not found
+          description: Competition not found
       security:
       - ApiKeyAuth: []
       summary: Retrieve the competition alias from the competition ID
@@ -104,7 +106,7 @@ paths:
                 $ref: '#/components/schemas/MatchId'
           description: Match ID
         "404":
-          description: Match alias not found
+          description: Match not found
       security:
       - ApiKeyAuth: []
       summary: Retrieve the match ID from the match alias
@@ -134,7 +136,7 @@ paths:
                 $ref: '#/components/schemas/MatchAlias'
           description: Match alias
         "404":
-          description: Match ID not found
+          description: Match not found
       security:
       - ApiKeyAuth: []
       summary: Retrieve the match alias from the match ID
@@ -230,7 +232,7 @@ paths:
                 $ref: '#/components/schemas/CreateSolutionResponse'
           description: Information of the created solution
         "404":
-          description: Match ID not found
+          description: Match not found
       security:
       - ApiKeyAuth: []
       summary: Create solution
@@ -238,25 +240,55 @@ paths:
       - solution
       x-accepts:
       - application/json
+  /participant/{id}:
+    get:
+      operationId: getParticipant
+      parameters:
+      - description: Participant ID
+        example: 912f548d-2bbe-48ab-90ce-e96dae38377d
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParticipantId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Participant'
+          description: Participant information
+        "404":
+          description: Participant not found
+      security:
+      - ApiKeyAuth: []
+      summary: Retrieve the participant information
+      tags:
+      - participant
+      x-accepts:
+      - application/json
 components:
   schemas:
     CreateSolutionResponse:
       description: Information of the created solution
       example:
+        participantId: 912f548d-2bbe-48ab-90ce-e96dae38377d
         trialNo: 4
-        participant:
-          participantId: 912f548d-2bbe-48ab-90ce-e96dae38377d
-          participantType: User
       properties:
-        participant:
-          $ref: '#/components/schemas/Participant'
+        participantId:
+          description: Participant ID
+          example: 912f548d-2bbe-48ab-90ce-e96dae38377d
+          format: uuid
+          type: string
         trialNo:
           description: Trial number
           example: 4
           format: int32
           type: integer
       required:
-      - participant
+      - participantId
       - trialNo
       type: object
     Solution:
@@ -270,17 +302,12 @@ components:
         - 9.1011
         userId: 1e892e70-47ba-4c8e-8563-6aea9019e334
         matchId: 5d7fc778-3e59-4128-a797-2e423c0aa461
-        participant:
-          participantId: 912f548d-2bbe-48ab-90ce-e96dae38377d
-          participantType: User
       properties:
         matchId:
           description: Match ID
           example: 5d7fc778-3e59-4128-a797-2e423c0aa461
           format: uuid
           type: string
-        participant:
-          $ref: '#/components/schemas/Participant'
         trialNo:
           description: Trial number
           example: 4
@@ -309,7 +336,6 @@ components:
       required:
       - createdAt
       - matchId
-      - participant
       - trialNo
       - variable
       type: object
@@ -323,18 +349,11 @@ components:
     Participant:
       description: Participant information
       example:
-        participantId: 912f548d-2bbe-48ab-90ce-e96dae38377d
         participantType: User
       properties:
-        participantId:
-          description: Participant ID
-          example: 912f548d-2bbe-48ab-90ce-e96dae38377d
-          format: uuid
-          type: string
         participantType:
           $ref: '#/components/schemas/ParticipantType'
       required:
-      - participantId
       - participantType
       type: object
     ParticipantId:
