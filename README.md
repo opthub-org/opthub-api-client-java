@@ -1,8 +1,8 @@
 # openapi-java-client
 
 OptHub REST API
-- API version: 0.1.1
-  - Build date: 2024-08-27T09:21:17.033728995Z[Etc/UTC]
+- API version: 0.3.0
+  - Build date: 2024-09-06T01:51:17.596157831Z[Etc/UTC]
   - Generator version: 7.8.0-SNAPSHOT
 
 OptHub Public REST API.
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>0.1.1</version>
+  <version>0.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:0.1.1"
+     implementation "org.openapitools:openapi-java-client:0.3.0"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-0.1.1.jar`
+* `target/openapi-java-client-0.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -86,12 +86,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.AliasApi;
+import org.openapitools.client.api.MatchTrialsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://example.com/todo/opthub-api-endpoint");
+    defaultClient.setBasePath("https://api.opthub.ai");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -99,13 +99,14 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
-    AliasApi apiInstance = new AliasApi(defaultClient);
-    UUID id = UUID.fromString("42c999a1-a30c-47ef-b656-eb49f67488dc"); // UUID | Competition ID
+    MatchTrialsApi apiInstance = new MatchTrialsApi(defaultClient);
+    UUID matchUuid = UUID.fromString("5d7fc778-3e59-4128-a797-2e423c0aa461"); // UUID | Match UUID
+    CreateMatchTrialRequest createMatchTrialRequest = new CreateMatchTrialRequest(); // CreateMatchTrialRequest | 
     try {
-      String result = apiInstance.resolveCompetitionAliasById(id);
+      MatchTrialResponse result = apiInstance.createMatchTrial(matchUuid, createMatchTrialRequest);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AliasApi#resolveCompetitionAliasById");
+      System.err.println("Exception when calling MatchTrialsApi#createMatchTrial");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -118,29 +119,38 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
+All URIs are relative to *https://api.opthub.ai*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AliasApi* | [**resolveCompetitionAliasById**](docs/AliasApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | Retrieve the competition alias from the competition ID
-*AliasApi* | [**resolveCompetitionIdByAlias**](docs/AliasApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | Retrieve the competition ID from the competition alias
-*AliasApi* | [**resolveMatchAliasById**](docs/AliasApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID
-*AliasApi* | [**resolveMatchIdByAlias**](docs/AliasApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias
-*CompetitionApi* | [**resolveCompetitionAliasById**](docs/CompetitionApi.md#resolveCompetitionAliasById) | **GET** /competition/{id}/alias | Retrieve the competition alias from the competition ID
-*CompetitionApi* | [**resolveCompetitionIdByAlias**](docs/CompetitionApi.md#resolveCompetitionIdByAlias) | **GET** /competition/alias/{alias} | Retrieve the competition ID from the competition alias
-*MatchApi* | [**resolveMatchAliasById**](docs/MatchApi.md#resolveMatchAliasById) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID
-*MatchApi* | [**resolveMatchIdByAlias**](docs/MatchApi.md#resolveMatchIdByAlias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias
-*ParticipantApi* | [**getParticipant**](docs/ParticipantApi.md#getParticipant) | **GET** /participant/{id} | Retrieve the participant information
-*SolutionApi* | [**createSolution**](docs/SolutionApi.md#createSolution) | **POST** /competition/match/{matchId}/solution | Create solution
-*SolutionApi* | [**getSolution**](docs/SolutionApi.md#getSolution) | **GET** /competition/match/{matchId}/solution | Retrive solution
+*MatchTrialsApi* | [**createMatchTrial**](docs/MatchTrialsApi.md#createMatchTrial) | **POST** /matches/{match_uuid}/trials | Create a match trial
+*MatchTrialsApi* | [**getMatchEvaluation**](docs/MatchTrialsApi.md#getMatchEvaluation) | **GET** /matches/{match_uuid}/trials/{trial_no}/evaluation | Retrieve status of a specific match evaluation related to the Solution submitted by the Participant themselves.
+*MatchTrialsApi* | [**getMatchScore**](docs/MatchTrialsApi.md#getMatchScore) | **GET** /matches/{match_uuid}/trials/{trial_no}/score | Retrieve status of a specific match score related to the Solution submitted by the Participant themselves.
+*MatchTrialsApi* | [**getMatchTrial**](docs/MatchTrialsApi.md#getMatchTrial) | **GET** /matches/{match_uuid}/trials/{trial_no} | Retrieve status of a specific Match Trial related to the Solution submitted by the Participant themselves.
+*MatchTrialsApi* | [**getSolution**](docs/MatchTrialsApi.md#getSolution) | **GET** /matches/{match_uuid}/trials/{trial_no}/solution | Retrieve the Solution submitted by the Participant themselves.
 
 
 ## Documentation for Models
 
- - [CreateSolutionResponse](docs/CreateSolutionResponse.md)
- - [GetSolutionError](docs/GetSolutionError.md)
- - [Participant](docs/Participant.md)
- - [ParticipantType](docs/ParticipantType.md)
+ - [AuthErrorCode](docs/AuthErrorCode.md)
+ - [AuthErrorResponse](docs/AuthErrorResponse.md)
+ - [CreateMatchTrial400Response](docs/CreateMatchTrial400Response.md)
+ - [CreateMatchTrial403Response](docs/CreateMatchTrial403Response.md)
+ - [CreateMatchTrial404Response](docs/CreateMatchTrial404Response.md)
+ - [CreateMatchTrialRequest](docs/CreateMatchTrialRequest.md)
+ - [GetMatchEvaluation404Response](docs/GetMatchEvaluation404Response.md)
+ - [GetMatchScore404Response](docs/GetMatchScore404Response.md)
+ - [GetMatchTrial403Response](docs/GetMatchTrial403Response.md)
+ - [GetMatchTrial404Response](docs/GetMatchTrial404Response.md)
+ - [GetSolution404Response](docs/GetSolution404Response.md)
+ - [MatchTrialEvaluation](docs/MatchTrialEvaluation.md)
+ - [MatchTrialResponse](docs/MatchTrialResponse.md)
+ - [MatchTrialScore](docs/MatchTrialScore.md)
+ - [MatchTrialStatus](docs/MatchTrialStatus.md)
+ - [RunnerStatus](docs/RunnerStatus.md)
+ - [ScalarOrVector](docs/ScalarOrVector.md)
+ - [ServerErrorCode](docs/ServerErrorCode.md)
+ - [ServerErrorResponse](docs/ServerErrorResponse.md)
  - [Solution](docs/Solution.md)
 
 
