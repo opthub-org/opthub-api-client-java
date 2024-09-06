@@ -50,7 +50,7 @@ import org.openapitools.client.JSON;
 /**
  * Internal server error response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-06T01:51:17.596157831Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-06T06:41:36.573601911Z[Etc/UTC]", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class ServerErrorResponse {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)

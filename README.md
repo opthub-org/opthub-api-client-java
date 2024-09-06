@@ -2,7 +2,7 @@
 
 OptHub REST API
 - API version: 0.3.0
-  - Build date: 2024-09-06T01:51:17.596157831Z[Etc/UTC]
+  - Build date: 2024-09-06T06:41:36.573601911Z[Etc/UTC]
   - Generator version: 7.8.0-SNAPSHOT
 
 OptHub Public REST API.
