@@ -1,6 +1,6 @@
 # MatchTrialsApi
 
-All URIs are relative to *https://api.opthub.ai*
+All URIs are relative to *https://api.competition.opthub.ai*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -30,7 +30,7 @@ import org.openapitools.client.api.MatchTrialsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.opthub.ai");
+    defaultClient.setBasePath("https://api.competition.opthub.ai");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -104,7 +104,7 @@ import org.openapitools.client.api.MatchTrialsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.opthub.ai");
+    defaultClient.setBasePath("https://api.competition.opthub.ai");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -178,7 +178,7 @@ import org.openapitools.client.api.MatchTrialsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.opthub.ai");
+    defaultClient.setBasePath("https://api.competition.opthub.ai");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -252,7 +252,7 @@ import org.openapitools.client.api.MatchTrialsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.opthub.ai");
+    defaultClient.setBasePath("https://api.competition.opthub.ai");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -326,7 +326,7 @@ import org.openapitools.client.api.MatchTrialsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.opthub.ai");
+    defaultClient.setBasePath("https://api.competition.opthub.ai");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");

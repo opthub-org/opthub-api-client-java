@@ -2,8 +2,8 @@
 
 OptHub REST API
 - API version: 0.3.0
-  - Build date: 2024-09-06T06:41:36.573601911Z[Etc/UTC]
-  - Generator version: 7.8.0-SNAPSHOT
+  - Build date: 2026-03-12T12:34:16.972888252Z[Etc/UTC]
+  - Generator version: 7.21.0-SNAPSHOT
 
 OptHub Public REST API.
 
@@ -85,13 +85,13 @@ import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
+import org.openapitools.client.model.*;
 import org.openapitools.client.api.MatchTrialsApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.opthub.ai");
+    defaultClient.setBasePath("https://api.competition.opthub.ai");
     
     // Configure API key authorization: ApiKeyAuth
     ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
@@ -119,7 +119,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.opthub.ai*
+All URIs are relative to *https://api.competition.opthub.ai*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -173,5 +173,5 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Author
 
-dev@opthub.ai
+competition@opthub.ai
 
